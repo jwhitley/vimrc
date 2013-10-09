@@ -1,0 +1,5 @@
+snippet "([^ ] +)fun" "Function argument" r
+`!p snip.rv = match.group(1)`(${1:args}) ->
+  ${0:# body...}
+endsnippet
+

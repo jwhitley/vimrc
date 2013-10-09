@@ -1,0 +1,28 @@
+snippet fn "fn"
+fn ${1:function_name} (${2:argument}) {
+	${0:// body...}
+}
+endsnippet
+
+snippet fnr "fnr"
+fn ${1:function_name} (${2:argument} : ${3:type}) -> ${4:type} {
+	${0:// body...}
+}
+endsnippet
+
+snippet if "If"
+if (${1:true}) {${0:$TM_SELECTED_TEXT}};
+endsnippet
+
+snippet let "let"
+let ${1:name} = ${2:value};
+endsnippet
+
+snippet pl "println"
+std::io::println( ${1:message} );
+endsnippet
+
+snippet us "use std"
+use std;
+
+endsnippet

@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+#
+# v -- fancy Vim runner
+#
+
+case `basename "$0"` in
+  vi)
+    vim=${VIM_EDITOR-vim} ;;
+  v*)
+    # Calling the script as "v" invokes this environment's graphical vim
+    vim=${GVIM_EDITOR-vim} ;|
+  vf)
+    opts=--cmd:'set fullscreen' ;;
+esac
+
+if [[ -n "`whence reattach-to-user-namespace`" && -z "$SUDO_USER" ]]; then
+  reattach=reattach-to-user-namespace
+fi
+
+if [[ -n $1 && -d $1 ]]; then
+  (cd $1; exec $reattach $vim)
+else
+  exec $reattach $vim ${(s.:.)opts} $*
+fi
