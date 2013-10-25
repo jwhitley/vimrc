@@ -288,6 +288,7 @@
   " }}}
 
   " ctrlp {{{
+    let g:ctrlp_extensions = ['buffertag', 'changes']
     let g:ctrlp_working_path_mode = 2
     let g:ctrlp_map = '<leader>ff'
     let g:ctrlp_mruf_relative = 1
@@ -302,6 +303,12 @@
         \ 3: ['.git/', 'cd %s && git ls-files -co --exclude-standard'],
         \ 4: ['.hg/',  'cd %s && hg status -cu | cut -f 2 -d" " | sort'],
         \ }
+      \ }
+
+    let g:ctrlp_buftag_types = {
+      \ 'coffee' : {
+        \ 'bin': 'coffeetags',
+        \ },
       \ }
     nnoremap <silent> <leader>fb :CtrlPBuffer<CR>
     nnoremap <silent> <leader>fr :CtrlPMRU<CR>
