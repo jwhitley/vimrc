@@ -35,7 +35,7 @@ Bundle        'henrik/git-grep-vim'
 Bundle           'sjl/gundo.vim'
 Bundle   'vim-scripts/keepcase.vim'
 Bundle    'scrooloose/nerdtree'
-Bundle      'jwhitley/Omnisharp', {'ref': 'john/stopOnlyIfStarted'}
+Bundle        'nosami/Omnisharp'
 Bundle        'henrik/rename.vim'
 Bundle         'wting/rust.vim'
 Bundle       'ciaranm/securemodelines'
