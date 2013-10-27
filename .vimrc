@@ -288,7 +288,10 @@
   " }}}
 
   " ctrlp {{{
-    let g:ctrlp_extensions = ['buffertag', 'changes']
+    if !exists("g:ctrlp_extensions")
+      let g:ctrlp_extensions = []
+    endif
+    let g:ctrlp_extensions += ['buffertag', 'changes']
     let g:ctrlp_working_path_mode = 2
     let g:ctrlp_map = '<leader>ff'
     let g:ctrlp_mruf_relative = 1
