@@ -487,6 +487,7 @@
 
     " Override unknown filetypes in certain zsh directories
     autocmd BufNewFile,BufRead */.zfunctions/* if &ft == '' || &ft =~# '^\(conf\)$' | set filetype=zsh | endif
+    autocmd BufNewFile,BufRead */.zlocal/* if &ft == '' || &ft =~# '^\(conf\)$' | set filetype=zsh | endif
 
     " Close vim if the only window left open is a NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
