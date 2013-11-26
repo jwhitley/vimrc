@@ -367,6 +367,13 @@
     autocmd SessionLoadPost * call NERDTreeTabsOpener()
   " }}}
 
+  " Omnisharp {{{
+    if !executable(Dot_vim("bundle/Omnisharp/server/OmniSharp/bin/Debug/OmniSharp.exe"))
+      echom "Building Omnisharp server"
+      call system('cd '.Dot_vim("bundle/Omnisharp/server").' ;xbuild /p:Platform="Any CPU"')
+    endif
+  " }}}
+
   " ag.vim {{{
     nnoremap <leader>* *:AgFromSearch<cr>
   " }}}
