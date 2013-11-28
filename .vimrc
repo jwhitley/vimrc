@@ -489,9 +489,6 @@
     autocmd WinEnter * setlocal nocursorline
     autocmd WinLeave * setlocal cursorline
 
-    " Save on losing focus, ala TextMate
-    autocmd BufLeave,FocusLost * silent! :wa
-
     " Override unknown filetypes in certain zsh directories
     autocmd BufNewFile,BufRead */.zfunctions/* if &ft == '' || &ft =~# '^\(conf\)$' | set filetype=zsh | endif
     autocmd BufNewFile,BufRead */.zlocal/* if &ft == '' || &ft =~# '^\(conf\)$' | set filetype=zsh | endif
