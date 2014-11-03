@@ -171,6 +171,11 @@
   " \ is the default leader
   " let mapleader="\"
 
+  " Run the last macro ...
+  nnoremap Q @@
+  " ... and lock out the rest of ex-mode
+  nnoremap gQ <nop>
+
   " Make jj a shortcut for ESC
   inoremap jj <ESC>
 
