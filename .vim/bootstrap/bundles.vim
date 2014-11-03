@@ -35,9 +35,6 @@ Plugin        'henrik/git-grep-vim'
 Plugin           'sjl/gundo.vim'
 Plugin   'vim-scripts/keepcase.vim'
 Plugin    'scrooloose/nerdtree'
-if has("python")
-  Plugin      'nosami/Omnisharp'
-endif
 Plugin        'henrik/rename.vim'
 Plugin         'wting/rust.vim'
 Plugin       'ciaranm/securemodelines'
