@@ -152,6 +152,8 @@
   set formatoptions=qrn1
   set colorcolumn=100
   " Tabs
+  set autoindent
+  set smarttab
   set expandtab
   set shiftwidth=2
   set shiftround
