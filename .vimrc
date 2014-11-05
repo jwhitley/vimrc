@@ -86,7 +86,7 @@
 
 " Vim UI {{{
   set backspace=indent,eol,start     " backspace over everything in insert mode
-  set listchars=tab:▸\ ,eol:¬        " Used with set list
+  set listchars=tab:⤑\ ,trail:·,eol:¬
 
   set background=dark
   if filereadable(Dot_vim("bundle/vim-colors-solarized/colors/solarized.vim"))
