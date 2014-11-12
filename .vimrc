@@ -467,6 +467,12 @@
   " delimitMate {{{
     let delimitMate_expand_cr = 1
   " }}}
+
+  " vim-preserve {{{
+    nnoremap <leader>$ <plug>(preserve-kill-trailing-whitespace)
+    nnoremap <leader>= <plug>(preserve-reindent-file)
+    nnoremap <leader>W <plug>(preserve-wombat)
+  " }}}
 " }}}
 
 

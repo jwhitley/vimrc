@@ -72,6 +72,7 @@ Plugin  'tangledhelix/vim-octopress'
 if has("ruby")
   Plugin    'jwhitley/vim-open-url'
 endif
+Plugin      'jwhitley/vim-preserve'
 Plugin        'rodjek/vim-puppet'
 Plugin        'henrik/vim-qargs'
 Plugin         'tpope/vim-rails'
