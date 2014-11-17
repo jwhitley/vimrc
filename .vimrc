@@ -304,7 +304,6 @@
     let g:ctrlp_mruf_relative = 1
     let g:ctrlp_mruf_exclude = '/\.git/.*\|^/tmp/vimpager.*\|^/var/folders.*'
     let g:ctrlp_match_window_reversed = 0
-    let g:ctrlp_root_markers = ['.config/vcsh']
     " Adding .vim/bundle hacks CtrlP into not using the -o option in $HOME,
     " where it's terribly slow.
     let g:ctrlp_user_command = {
