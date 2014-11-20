@@ -456,6 +456,7 @@
 
   " vim-session {{{
     let g:session_autoload = 'no'
+    let g:session_autosave = 'no'
     nnoremap <leader>so :OpenSession<space>
     nnoremap <leader>ss :SaveSession<space>
   " }}}
