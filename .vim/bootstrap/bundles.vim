@@ -22,7 +22,8 @@ Plugin     'jwhitley/vim-matchit'
 
 " My Plugins here:
 "
-Plugin       'epmatsw/ag.vim'
+Plugin       'mileszs/ack.vim'
+Plugin         'rking/ag.vim'
 Plugin           'sjl/badwolf'
 Plugin   'vim-scripts/bufkill.vim'
 Plugin   'vim-scripts/camelcasemotion'
@@ -42,9 +43,7 @@ Plugin    'scrooloose/syntastic'
 Plugin     'godlygeek/tabular'
 Plugin    'majutsushi/tagbar'
 Plugin    'timcharper/textile.vim'
-if has("python") || has("python3")
-  Plugin      'SirVer/ultisnips'
-endif
+Plugin        'SirVer/ultisnips'
 Plugin      'jwhitley/Vagrantfile.vim'
 Plugin         'tpope/vim-abolish'
 Plugin         'bling/vim-airline'
