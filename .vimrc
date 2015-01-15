@@ -454,13 +454,6 @@
     endif
   " }}}
 
-  " vim-session {{{
-    let g:session_autoload = 'no'
-    let g:session_autosave = 'no'
-    nnoremap <leader>so :OpenSession<space>
-    nnoremap <leader>ss :SaveSession<space>
-  " }}}
-
   " vim-open-url {{{
     noremap <silent> <leader>o :OpenUrl<cr>
   " }}}
@@ -473,6 +466,12 @@
     nnoremap <leader>$ <plug>(preserve-kill-trailing-whitespace)
     nnoremap <leader>= <plug>(preserve-reindent-file)
     nnoremap <leader>W <plug>(preserve-wombat)
+  " }}}
+
+  " vim-prosession {{{
+    let g:prosession_dir = Dot_vim("sessions")
+    silent! call mkdir(g:prosession_dir, "p", 0700)
+    let g:prosession_on_startup = 1
   " }}}
 " }}}
 
