@@ -22,6 +22,15 @@ Plugin     'jwhitley/vim-matchit'
 
 " My Plugins here:
 "
+
+" These plugins do not coexist well with vimpager; don't load them in vimpager
+" sessions.
+if ! exists("vimpager")
+  Plugin       'tpope/vim-obsession'
+  Plugin 'dhruvasagar/vim-prosession'
+  Plugin      'spiiph/vim-space'
+endif
+
 Plugin       'mileszs/ack.vim'
 Plugin         'rking/ag.vim'
 Plugin           'sjl/badwolf'
@@ -67,10 +76,8 @@ Plugin      'nelstrom/vim-markdown-folding'
 Plugin         'xolox/vim-misc'
 Plugin       'terryma/vim-multiple-cursors'
 Plugin         'jistr/vim-nerdtree-tabs'
-Plugin         'tpope/vim-obsession'
 Plugin  'tangledhelix/vim-octopress'
 Plugin      'jwhitley/vim-preserve'
-Plugin   'dhruvasagar/vim-prosession'
 Plugin        'rodjek/vim-puppet'
 Plugin        'henrik/vim-qargs'
 Plugin         'tpope/vim-rails'
@@ -82,9 +89,6 @@ Plugin      'goldfeld/vim-seek'
 Plugin         'mhinz/vim-signify'
 Plugin      'jpalardy/vim-slime'
 Plugin     'duganchen/vim-soy'
-if ! exists("vimpager")
-  Plugin      'spiiph/vim-space'
-endif
 Plugin        'tpope/vim-surround'
 Plugin         'kana/vim-textobj-entire'
 Plugin         'kana/vim-textobj-line'
