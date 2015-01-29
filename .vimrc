@@ -120,7 +120,7 @@
       set ttimeoutlen=10
       augroup FastEscape
           autocmd!
-          au InsertEnter * set timeoutlen=0
+          au InsertEnter * set timeoutlen=150
           au InsertLeave * set timeoutlen=1000
           " Fix Cursor in TMUX
           if exists('$TMUX')
@@ -339,6 +339,12 @@
     nnoremap <silent> <leader>gw :Gwrite<CR>
     nnoremap <leader>gu :Git add -u<CR>
   "}}}
+
+  " emmet {{{
+    let g:user_emmet_install_global = 0
+    let g:user_emmet_leader_key='<C-e>'
+    autocmd FileType html,css EmmetInstall
+  " }}}
 
   " tabular {{{
     nnoremap <leader>a= :Tabularize /=<cr>
