@@ -281,6 +281,8 @@
   " Marked.app
   " via http://stackoverflow.com/questions/7483130
   command! Marked silent !open -a "Marked.app" expand("%:p")
+
+  command! Q :qall
 " }}}
 
 " Plugins {{{
