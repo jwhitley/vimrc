@@ -356,7 +356,13 @@
     nnoremap <leader>a. :Tabularize /^[^.]*\zs\./r0c0l0<cr>
     vnoremap <leader>a. :Tabularize /^[^.]*\zs\./r0c0l0<cr>
     " Tabularize Bundle declarations
-    autocmd VimEnter * if exists(":Tabularize") | exe ":AddTabularPattern! bundles /[^ ]\\+\\//l1r0" | endif
+    augroup CustomTabularize
+      autocmd!
+      autocmd VimEnter * if exists(":Tabularize") | exe ":AddTabularPattern! bundles /[^ ]\\+\\//l1r0" | endif
+
+      autocmd BufRead */.vim/bootstrap/bundles.vim nnoremap <leader>ab :Tabularize bundles<cr>
+      autocmd BufRead */.vim/bootstrap/bundles.vim vnoremap <leader>ab :Tabularize bundles<cr>
+    augroup END
   " }}}
 
   " NERDTree {{{
