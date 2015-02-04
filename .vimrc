@@ -483,6 +483,9 @@
   " }}}
 
   " vim-prosession {{{
+    if exists('$TMUX')
+      let g:prosession_tmux_title = 1
+    endif
     let g:prosession_dir = Dot_vim("sessions")
     silent! call mkdir(g:prosession_dir, "p", 0700)
     let g:prosession_on_startup = 1
