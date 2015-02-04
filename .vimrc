@@ -396,6 +396,10 @@
     nnoremap <leader>u :GundoToggle<cr>
   " }}}
 
+  " lushtags {{{
+    let $PATH=Dot_vim("bundle/lushtags/.cabal-sandbox/bin").":".$PATH
+  " }}}
+
   " tagbar {{{
     nnoremap <silent> <leader>t :TagbarToggle<cr>
     let g:tagbar_type_go = {
@@ -470,6 +474,13 @@
 
   " delimitMate {{{
     let delimitMate_expand_cr = 1
+  " }}}
+
+  " vim-hdevtools {{{
+    au FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
+    au FileType haskell nnoremap <buffer> <silent> <leader>hc :HdevtoolsClear<CR>
+
+    let $PATH=Dot_vim("bundle/vim-hdevtools/.cabal-sandbox/bin").":".$PATH
   " }}}
 
   " vim-preserve {{{
