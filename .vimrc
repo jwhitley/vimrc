@@ -468,10 +468,6 @@
     endif
   " }}}
 
-  " vim-open-url {{{
-    noremap <silent> <leader>o :OpenUrl<cr>
-  " }}}
-
   " delimitMate {{{
     let delimitMate_expand_cr = 1
   " }}}
