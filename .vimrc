@@ -508,6 +508,7 @@
     autocmd FileType gitcommit setlocal fo+=t fo-=q tw=72
     autocmd FileType markdown setlocal autoindent
     autocmd FileType go setlocal noexpandtab ts=4 sw=4 sts=4
+    autocmd FileType haskell setlocal nospell
 
     " Jump to last cursor position unless it's invalid or in an event handler
     autocmd BufReadPost *
