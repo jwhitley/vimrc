@@ -349,6 +349,8 @@
   " }}}
 
   " tabular {{{
+    nnoremap <leader>a\| :Tabularize /\|<cr>
+    vnoremap <leader>a\| :Tabularize /\|<cr>
     nnoremap <leader>a= :Tabularize /=<cr>
     vnoremap <leader>a= :Tabularize /=<cr>
     nnoremap <leader>a: :Tabularize /:\zs<cr>
