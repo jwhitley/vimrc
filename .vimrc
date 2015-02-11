@@ -171,6 +171,9 @@
   " \ is the default leader
   let mapleader=";"
 
+  " ... and temporarily lock out \ until we're fully switched to ;
+  nnoremap \ :echoerr "Don't do that!"<cr>
+
   " Run the last macro ...
   nnoremap Q @@
   " ... and lock out the rest of ex-mode
@@ -290,6 +293,10 @@
     set noshowmode                     " Redundant when used with airline/powerline
     let g:airline_powerline_fonts = 1
     let g:airline_section_z = ' %3l:%3c'
+  " }}}
+
+  " vim-commentary {{{
+    let g:commentary_map_backslash = 0
   " }}}
 
   " matchit {{{
