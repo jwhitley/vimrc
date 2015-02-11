@@ -254,10 +254,10 @@
   nnoremap <silent> <leader><space> :nohlsearch<cr>
 
   " Yank/put to/from system clipboard
-  nnoremap <leader>y "+y
-  vnoremap <leader>y "+y
-  nnoremap <leader>p "+p
-  nnoremap <leader>P "+P
+  nnoremap <leader>y "*y
+  vnoremap <leader>y "*y
+  nnoremap <leader>p "*p
+  nnoremap <leader>P "*P
 
   " See mapping of '%%', above
   nmap <leader>ew :e %%
