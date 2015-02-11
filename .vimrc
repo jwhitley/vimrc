@@ -272,7 +272,7 @@
 
   " fugitive-style invocation for Git Tower
   if has('mac')
-    nnoremap \gv :silent !gittower -s >& /dev/null<cr>
+    nnoremap <leader>gv :silent !gittower -s >& /dev/null<cr>
   endif
 
 " }}}
