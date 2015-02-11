@@ -169,7 +169,7 @@
 
 " Key Mappings {{{
   " \ is the default leader
-  " let mapleader="\"
+  let mapleader=";"
 
   " Run the last macro ...
   nnoremap Q @@
@@ -248,7 +248,7 @@
   " Leader Mappings
 
   " Toggle most recent buffer
-  nnoremap <leader>] <c-^>
+  nnoremap <leader>' <c-^>
 
   " Clear search highlight
   nnoremap <silent> <leader><space> :nohlsearch<cr>
