@@ -68,7 +68,10 @@
   set splitright
   set splitbelow
 
-  set spell
+  " 'spell' set by default is extremely annoying for any code-like
+  " filetype, so I now default to 'nospell' and only turn spelling
+  " on for known-useful filetypes.
+  set nospell
   set spelllang=en_us
 
   set scrolloff=3                    " context off the end of a buffer
@@ -517,8 +520,8 @@
     autocmd FileType bzr setlocal tw=72
     autocmd FileType gitcommit setlocal fo+=t fo-=q tw=72
     autocmd FileType markdown setlocal autoindent
+    autocmd Filetype markdown,txt setlocal spell
     autocmd FileType go setlocal noexpandtab ts=4 sw=4 sts=4
-    autocmd FileType haskell setlocal nospell
 
     " Jump to last cursor position unless it's invalid or in an event handler
     autocmd BufReadPost *
