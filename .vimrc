@@ -162,6 +162,10 @@
   set shiftwidth=2
   set shiftround
   set softtabstop=2
+
+  " Syntax-specific settings
+  let hs_highlight_types = 1
+  let hs_highlight_more_types = 1
 " }}}
 
 " Folding {{{
@@ -362,6 +366,9 @@
   " tabular {{{
     nnoremap <leader>a\| :Tabularize /\|<cr>
     vnoremap <leader>a\| :Tabularize /\|<cr>
+    " ah is for Haskell -- useful for guard and pattern match alignment
+    nnoremap <leader>ah :Tabularize /[=\|]>\@!<cr>
+    vnoremap <leader>ah :Tabularize /[=\|]>\@!<cr>
     nnoremap <leader>a= :Tabularize /=<cr>
     vnoremap <leader>a= :Tabularize /=<cr>
     nnoremap <leader>a: :Tabularize /:\zs<cr>
@@ -490,8 +497,11 @@
   " }}}
 
   " vim-hdevtools {{{
-    au FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
-    au FileType haskell nnoremap <buffer> <silent> <leader>hc :HdevtoolsClear<CR>
+    augroup Hdevtools
+      autocmd!
+      autocmd FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
+      autocmd FileType haskell nnoremap <buffer> <silent> <leader>hc :HdevtoolsClear<CR>
+    augroup END
 
     let $PATH=Dot_vim("bundle/vim-hdevtools/.cabal-sandbox/bin").":".$PATH
   " }}}
