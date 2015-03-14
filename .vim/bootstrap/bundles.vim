@@ -102,6 +102,7 @@ Plugin      'nelstrom/vim-textobj-rubyblock'
 Plugin          'kana/vim-textobj-user'
 Plugin  'tmux-plugins/vim-tmux'
 Plugin   'christoomey/vim-tmux-navigator'
+Plugin      'jwhitley/vim-vimperator'
 Plugin      'jwhitley/vim-visual-star-search'
 Plugin       'skalnik/vim-vroom'
 
