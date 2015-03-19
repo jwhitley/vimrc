@@ -540,7 +540,7 @@
     autocmd FileType bzr setlocal tw=72
     autocmd FileType gitcommit setlocal fo+=t fo-=q tw=72
     autocmd FileType markdown setlocal autoindent
-    autocmd Filetype markdown,txt setlocal spell
+    autocmd Filetype markdown,txt,gitcommit setlocal spell
     autocmd FileType go setlocal noexpandtab ts=4 sw=4 sts=4
 
     " Jump to last cursor position unless it's invalid or in an event handler
