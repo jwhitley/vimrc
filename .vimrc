@@ -272,7 +272,7 @@
   nnoremap <leader>' <c-^>
 
   " Clear search highlight
-  nnoremap <silent> <leader>, :nohlsearch<cr>
+  nnoremap <silent> <leader><leader> :nohlsearch<cr>
 
   " Yank/put to/from system clipboard
   nnoremap <leader>y "*y
