@@ -257,6 +257,29 @@
     if has('fullscreen')
       noremap <D-CR> :set fullscreen!<CR>
     endif
+  else
+    " jump to the corresponding Vim tab
+    nnoremap <c-]>1 1gt
+    nnoremap <c-]>2 2gt
+    nnoremap <c-]>3 3gt
+    nnoremap <c-]>4 4gt
+    nnoremap <c-]>5 5gt
+    nnoremap <c-]>6 6gt
+    nnoremap <c-]>7 7gt
+    nnoremap <c-]>8 8gt
+    nnoremap <c-]>9 9gt
+    nnoremap <c-]>0 :tablast<cr>
+
+    inoremap <c-]>1 1gt
+    inoremap <c-]>2 2gt
+    inoremap <c-]>3 3gt
+    inoremap <c-]>4 4gt
+    inoremap <c-]>5 5gt
+    inoremap <c-]>6 6gt
+    inoremap <c-]>7 7gt
+    inoremap <c-]>8 8gt
+    inoremap <c-]>9 9gt
+    inoremap <c-]>0 :tablast<cr>    
   endif
 
   function! CurrDir()
