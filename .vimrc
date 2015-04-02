@@ -230,28 +230,19 @@
   cnoremap <c-n> <Down>
   cnoremap <c-p> <Up>
 
+  function MapTabs(mapcmd, keypat, ...)
+    let l:cmdpat = a:0 > 0 ? a:1 : "%dgt"
+    for tabno in range(1,9)
+      exec a:mapcmd . " " . printf(a:keypat, tabno) . " " . printf(l:cmdpat, tabno)
+    endfor
+  endfunction
+
   if has('gui_macvim')
     " jump to the corresponding Vim tab
-    nnoremap <D-1> 1gt
-    nnoremap <D-2> 2gt
-    nnoremap <D-3> 3gt
-    nnoremap <D-4> 4gt
-    nnoremap <D-5> 5gt
-    nnoremap <D-6> 6gt
-    nnoremap <D-7> 7gt
-    nnoremap <D-8> 8gt
-    nnoremap <D-9> 9gt
+    call MapTabs('nnoremap', '<D-%d>')
     nnoremap <D-0> :tablast<cr>
 
-    inoremap <D-1> 1gt
-    inoremap <D-2> 2gt
-    inoremap <D-3> 3gt
-    inoremap <D-4> 4gt
-    inoremap <D-5> 5gt
-    inoremap <D-6> 6gt
-    inoremap <D-7> 7gt
-    inoremap <D-8> 8gt
-    inoremap <D-9> 9gt
+    call MapTabs('inoremap', '<D-%d>')
     inoremap <D-0> :tablast<cr>
 
     if has('fullscreen')
@@ -259,27 +250,17 @@
     endif
   else
     " jump to the corresponding Vim tab
-    nnoremap <c-]>1 1gt
-    nnoremap <c-]>2 2gt
-    nnoremap <c-]>3 3gt
-    nnoremap <c-]>4 4gt
-    nnoremap <c-]>5 5gt
-    nnoremap <c-]>6 6gt
-    nnoremap <c-]>7 7gt
-    nnoremap <c-]>8 8gt
-    nnoremap <c-]>9 9gt
+    
+    call MapTabs('nnoremap', '<c-]>%d')
     nnoremap <c-]>0 :tablast<cr>
 
-    inoremap <c-]>1 1gt
-    inoremap <c-]>2 2gt
-    inoremap <c-]>3 3gt
-    inoremap <c-]>4 4gt
-    inoremap <c-]>5 5gt
-    inoremap <c-]>6 6gt
-    inoremap <c-]>7 7gt
-    inoremap <c-]>8 8gt
-    inoremap <c-]>9 9gt
+    call MapTabs('inoremap', '<c-]>%d')
     inoremap <c-]>0 :tablast<cr>    
+
+    if has('nvim') && exists(':tnoremap')
+      call MapTabs('tnoremap', '<c-]>%d', '<c-\><c-n>%dgt')
+      tnoremap <c-]>0 <c-\><c-n>:tablast<cr>    
+    endif
   endif
 
   function! CurrDir()
