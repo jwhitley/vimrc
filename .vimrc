@@ -178,15 +178,23 @@
 " Key Mappings {{{
   " \ is the default leader
   let mapleader=";"
+  let maplocalleader="\<c-]>"
 
-  " experimental neovim terminal mappings
-  if has('nvim') && exists(':tnoremap')
+  " used with neovim's :term
+  if exists(':tnoremap')
     tnoremap <c-h> <c-\><c-n><c-w>h
     tnoremap <c-j> <c-\><c-n><c-w>j
     tnoremap <c-k> <c-\><c-n><c-w>k
     tnoremap <c-l> <c-\><c-n><c-w>l
+    tnoremap <localleader>l <c-l>
+    nnoremap <localleader>c :tabnew \| term<cr>
+    nnoremap <localleader>\| :vsp \| term<cr>
+    nnoremap <localleader>- :sp \| term<cr>
     " tnoremap <silent> <c-w>z <c-\><c-n>:ZoomWinTabToggle<cr>
-    au WinEnter term://* startinsert
+    augroup NeovimTerminal
+      autocmd!
+      autocmd WinEnter term://* startinsert
+    augroup END
   endif
 
   " ... and temporarily lock out \ until we're fully switched to ;
