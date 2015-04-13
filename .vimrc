@@ -307,7 +307,15 @@
   " via http://stackoverflow.com/questions/7483130
   command! Marked silent !open -a "Marked.app" expand("%:p")
 
-  command! Q :qall
+  " :Q is a shortcut for :qall
+  " :Q! 'forgets' the current vim-obsession managed session before exiting
+  function! QuitAll(bang)
+    if a:bang && exists("g:loaded_obsession")
+      Obsession!
+    endif
+    qall
+  endfunction
+  command! -bang Q call QuitAll(<bang>0)<cr>
 " }}}
 
 " Plugins {{{
