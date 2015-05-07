@@ -371,7 +371,7 @@
         \ },
       \ }
     nnoremap <silent> <leader>fb :CtrlPBuffer<CR>
-    nnoremap <silent> <leader>fr :CtrlPMRU<CR>
+    nnoremap <silent> <leader>fm :CtrlPMRU<CR>
     nnoremap <silent> <leader>ft :CtrlPBufTag<CR>
 
     let g:ctrlp_custom_ignore = {
