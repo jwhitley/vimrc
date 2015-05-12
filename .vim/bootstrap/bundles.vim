@@ -20,8 +20,9 @@ Plugin       'gmarik/vundle'
 " Dependencies of other bundles
 Plugin     'jwhitley/vim-matchit'
 
-" My Plugins here:
-"
+"""
+""" Conditionally loaded plugins
+"""
 
 " These plugins do not coexist well with vimpager; don't load them in vimpager
 " sessions.
@@ -30,6 +31,16 @@ if ! exists("vimpager")
   Plugin 'dhruvasagar/vim-prosession'
   Plugin      'spiiph/vim-space'
 endif
+
+" Only load under tmux
+if exists('$TMUX')
+Plugin  'tmux-plugins/vim-tmux'
+Plugin   'christoomey/vim-tmux-navigator'
+endif
+
+"""
+""" Unconditionally loaded plugins
+"""
 
 Plugin       'mileszs/ack.vim'
 Plugin         'rking/ag.vim'
@@ -57,6 +68,7 @@ Plugin    'scrooloose/syntastic'
 Plugin     'godlygeek/tabular'
 Plugin    'majutsushi/tagbar'
 Plugin    'timcharper/textile.vim'
+Plugin       'davidoc/taskpaper.vim'
 Plugin        'SirVer/ultisnips'
 Plugin      'jwhitley/Vagrantfile.vim'
 Plugin        'Shougo/vimproc.vim'
@@ -102,11 +114,10 @@ Plugin          'kana/vim-textobj-entire'
 Plugin          'kana/vim-textobj-line'
 Plugin      'nelstrom/vim-textobj-rubyblock'
 Plugin          'kana/vim-textobj-user'
-Plugin  'tmux-plugins/vim-tmux'
-Plugin   'christoomey/vim-tmux-navigator'
 Plugin      'jwhitley/vim-vimperator'
 Plugin      'jwhitley/vim-visual-star-search'
 Plugin       'skalnik/vim-vroom'
+Plugin        'troydm/zoomwintab.vim'
 
 if exists("s:bootstrap") && s:bootstrap
   unlet s:bootstrap

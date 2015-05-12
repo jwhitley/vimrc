@@ -16,6 +16,13 @@
   function! Dot_vim(path)
     return g:vimrc_home."/.vim/".a:path
   endfunction
+
+  " Enable nvim's true color mode
+  if has('nvim') && exists('$ITERM_SESSION_ID') && !exists('$TMUX')
+    if !exists('$NVIM_TUI_ENABLE_TRUE_COLOR')
+      let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+  endif
 " }}}
 
 " Bundles {{{
@@ -97,7 +104,10 @@
     let g:solarized_termcolors=256
     let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
-    colorscheme solarized
+    augroup InitColorScheme
+      autocmd!
+      au VimEnter * colorscheme solarized | AirlineTheme solarized
+    augroup END
     call togglebg#map("<F5>")
   endif
 
@@ -116,38 +126,34 @@
   " set switchbuf=usetab,newtab
 
   " Terminal settings {{{
-    if !has('gui_running')
-      " Enable mouse/trackpad scrolling
-      set mouse=nicr
-      " Fix escape delay leaving insert mode
-      " via https://powerline.readthedocs.org/en/latest/tipstricks.html
-      set ttimeoutlen=10
-      augroup FastEscape
-          autocmd!
-          au InsertEnter * set timeoutlen=150
-          au InsertLeave * set timeoutlen=1000
-          " Fix Cursor in TMUX
-          if exists('$TMUX')
-            let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-            let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-          else
-            let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-            let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-          endif
-      augroup END
+    " Enable mouse/trackpad scrolling
+    set mouse=nicr
+    " Fix escape delay leaving insert mode
+    " via https://powerline.readthedocs.org/en/latest/tipstricks.html
+    set ttimeoutlen=10
+    augroup FastEscape
+      autocmd!
+      au InsertEnter * set timeoutlen=150
+      au InsertLeave * set timeoutlen=1000
+    augroup END
+    " Fix Cursor in TMUX
+    if exists('$TMUX')
+      let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+      let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    else
+      let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+      let &t_EI = "\<Esc>]50;CursorShape=0\x7"
     endif
   " }}}
 
   " GUI settings {{{
-    if has('gui_running')
-      set lines=50
-      set columns=84
-      set guioptions-=T
-      if has('gui_macvim')
-        set transparency=3
-      endif
-      set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h16,Anonymous\ Pro\ for\ Powerline:h16,Menlo:h18:Consolas\ Regular:h16,Courier\ New\ Regular:h18
+    set lines=50
+    set columns=84
+    set guioptions-=T
+    if has('gui_macvim')
+      set transparency=3
     endif
+    set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h16,Anonymous\ Pro\ for\ Powerline:h16,Menlo:h18:Consolas\ Regular:h16,Courier\ New\ Regular:h18
   " }}}
 " }}}
 
@@ -182,15 +188,21 @@
 
   " used with neovim's :term
   if exists(':tnoremap')
+    " Term mode mappings
     tnoremap <c-h> <c-\><c-n><c-w>h
     tnoremap <c-j> <c-\><c-n><c-w>j
     tnoremap <c-k> <c-\><c-n><c-w>k
     tnoremap <c-l> <c-\><c-n><c-w>l
     tnoremap <localleader>l <c-l>
+
+    " Dual term/normal mode mappings
+    tnoremap <silent> <localleader>z <c-\><c-n>:ZoomWinTabToggle<cr>
+    nnoremap <silent> <localleader>z :ZoomWinTabToggle<cr>
+
+    " Normal-mode mappings for use with term
     nnoremap <localleader>c :tabnew \| term<cr>
     nnoremap <localleader>\| :vsp \| term<cr>
     nnoremap <localleader>- :sp \| term<cr>
-    " tnoremap <silent> <c-w>z <c-\><c-n>:ZoomWinTabToggle<cr>
     augroup NeovimTerminal
       autocmd!
       autocmd WinEnter term://* startinsert
@@ -258,16 +270,16 @@
     endif
   else
     " jump to the corresponding Vim tab
-    
+
     call MapTabs('nnoremap', '<c-]>%d')
     nnoremap <c-]>0 :tablast<cr>
 
     call MapTabs('inoremap', '<c-]>%d')
-    inoremap <c-]>0 :tablast<cr>    
+    inoremap <c-]>0 :tablast<cr>
 
-    if has('nvim') && exists(':tnoremap')
+    if exists(':tnoremap')
       call MapTabs('tnoremap', '<c-]>%d', '<c-\><c-n>%dgt')
-      tnoremap <c-]>0 <c-\><c-n>:tablast<cr>    
+      tnoremap <c-]>0 <c-\><c-n>:tablast<cr>
     endif
   endif
 
@@ -334,6 +346,10 @@
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#show_buffers = 0
     let g:airline#extensions#tabline#tab_nr_type = 1
+    augroup AirlineColorScheme
+      autocmd!
+      au ColorScheme * AirlineTheme g:colors_name
+    augroup END
   " }}}
 
   " vim-commentary {{{
@@ -425,20 +441,7 @@
     " Augmented with vim-nerdtree-tabs plugin
     nnoremap <leader>n :NERDTreeTabsToggle<cr>
     nnoremap <leader>fn :NERDTreeFind<cr>
-
-    function! NERDTreeTabsOpener()
-      " The number of columns for the trigger is the total width of:
-      " - a NERDTree window
-      " - a help window
-      " - a four-column line number gutter
-      if &columns < 114
-        let g:nerdtree_tabs_open_on_gui_startup=0
-      else
-        let g:nerdtree_tabs_open_on_gui_startup=1
-      endif
-    endfunction
-    call NERDTreeTabsOpener()
-    autocmd SessionLoadPost * call NERDTreeTabsOpener()
+    let g:nerdtree_tabs_open_on_gui_startup=0
   " }}}
 
   " ag.vim {{{
