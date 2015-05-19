@@ -205,7 +205,8 @@
     nnoremap <localleader>- :sp \| term<cr>
     augroup NeovimTerminal
       autocmd!
-      autocmd WinEnter term://* startinsert
+      autocmd TermOpen * let b:terminal_scrollback_buffer_size=20000
+      autocmd TermOpen * nnoremap <cr> i
     augroup END
   endif
 
