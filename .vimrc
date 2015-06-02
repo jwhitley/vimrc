@@ -326,7 +326,7 @@
 " {{{ Commands
   " Marked.app
   " via http://stackoverflow.com/questions/7483130
-  command! Marked silent !open -a "Marked.app" expand("%:p")
+  command! Marked silent exe "!open -a Marked.app " . expand("%:p")
 
   " :Q is a shortcut for :qall
   " :Q! 'forgets' the current vim-obsession managed session before exiting
