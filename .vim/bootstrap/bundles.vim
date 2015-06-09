@@ -5,7 +5,7 @@ let s:plug_tool_home=Dot_vim("bundle/vim-plug")
 
 if !isdirectory(Dot_vim("bundle/vim-plug/.git"))
   silent exec "!mkdir -p ".s:bundle_home
-  silent exec "!git clone https://github.com/jwhitley/vim-plug.git ".s:plug_tool_home
+  silent exec "!git clone --depth 1 https://github.com/jwhitley/vim-plug.git ".s:plug_tool_home
   let s:bootstrap=1
 endif
 
