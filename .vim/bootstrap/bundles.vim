@@ -1,24 +1,22 @@
-" Vundle prelude; see https://github.com/gmarik/vundle
-filetype off  " required!
+" Vim plugin prelude
 
 let s:bundle_home=Dot_vim("bundle")
-let s:vundle_home=Dot_vim("bundle/vundle")
+let s:plug_tool_home=Dot_vim("bundle/vim-plug")
 
-if !isdirectory(Dot_vim("bundle/vundle/.git"))
+if !isdirectory(Dot_vim("bundle/vim-plug/.git"))
   silent exec "!mkdir -p ".s:bundle_home
-  silent exec "!git clone git://github.com/gmarik/vundle.git ".s:vundle_home
+  silent exec "!git clone https://github.com/jwhitley/vim-plug.git ".s:plug_tool_home
   let s:bootstrap=1
 endif
 
-exec "set rtp+=".s:vundle_home
-call vundle#rc(s:bundle_home)
+exec "set rtp+=".s:plug_tool_home
+call plug#begin(s:bundle_home)
 
-" let Vundle manage Vundle
-" required!
-Plugin       'gmarik/vundle'
+" let vim-plug manage vim-plug
+Plug       'jwhitley/vim-plug'
 
 " Dependencies of other bundles
-Plugin     'jwhitley/vim-matchit'
+Plug     'jwhitley/vim-matchit'
 
 """
 """ Conditionally loaded plugins
@@ -27,100 +25,101 @@ Plugin     'jwhitley/vim-matchit'
 " These plugins do not coexist well with vimpager; don't load them in vimpager
 " sessions.
 if ! exists("vimpager")
-  Plugin       'tpope/vim-obsession'
-  Plugin 'dhruvasagar/vim-prosession'
-  Plugin      'spiiph/vim-space'
+  Plug       'tpope/vim-obsession'
+  Plug 'dhruvasagar/vim-prosession'
+  Plug      'spiiph/vim-space'
 endif
 
 " Only load under tmux
 if exists('$TMUX')
-Plugin  'tmux-plugins/vim-tmux'
-Plugin   'christoomey/vim-tmux-navigator'
+Plug  'tmux-plugins/vim-tmux'
+Plug   'christoomey/vim-tmux-navigator'
 endif
 
 """
 """ Unconditionally loaded plugins
 """
 
-Plugin       'mileszs/ack.vim'
-Plugin         'rking/ag.vim'
-Plugin           'sjl/badwolf'
-Plugin   'vim-scripts/bufkill.vim'
-Plugin   'vim-scripts/camelcasemotion'
-Plugin     'JulesWang/css.vim'
-Plugin  'editorconfig/editorconfig-vim'
-Plugin           'sjl/clam.vim'
-Plugin         'rhysd/clever-f.vim'
-Plugin      'ctrlpvim/ctrlp.vim'
-Plugin      'Raimondi/delimitMate'
-Plugin         'mattn/emmet-vim'
-Plugin      'eagletmt/ghcmod-vim'
-Plugin    'gregsexton/gitv'
-Plugin        'henrik/git-grep-vim'
-Plugin           'sjl/gundo.vim'
-Plugin   'vim-scripts/keepcase.vim'
-Plugin          'bitc/lushtags'
-Plugin    'scrooloose/nerdtree'
-Plugin        'henrik/rename.vim'
-Plugin         'wting/rust.vim'
-Plugin       'ciaranm/securemodelines'
-Plugin    'scrooloose/syntastic'
-Plugin     'godlygeek/tabular'
-Plugin    'majutsushi/tagbar'
-Plugin    'timcharper/textile.vim'
-Plugin       'davidoc/taskpaper.vim'
-Plugin      'jwhitley/Vagrantfile.vim'
-Plugin        'Shougo/vimproc.vim'
-Plugin         'tpope/vim-abolish'
-Plugin         'bling/vim-airline'
-Plugin        'kchmck/vim-coffee-script'
-Plugin      'jwhitley/vim-colors-solarized'
-Plugin         'tpope/vim-commentary'
-Plugin         'tpope/vim-dispatch'
-Plugin         'tpope/vim-endwise'
-Plugin       'terryma/vim-expand-region'
-Plugin         'tpope/vim-fugitive'
-Plugin      'jnwhiteh/vim-golang'
-Plugin          'bitc/vim-hdevtools'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin  'austintaylor/vim-indentobject'
-Plugin        'wgibbs/vim-irblack'
-Plugin   'digitaltoad/vim-jade'
-Plugin      'pangloss/vim-javascript'
-Plugin        'jelera/vim-javascript-syntax'
-Plugin     'mintplant/vim-literate-coffeescript'
-Plugin         'tpope/vim-markdown'
-Plugin      'nelstrom/vim-markdown-folding'
-Plugin         'xolox/vim-misc'
-Plugin       'terryma/vim-multiple-cursors'
-Plugin         'jistr/vim-nerdtree-tabs'
-Plugin  'tangledhelix/vim-octopress'
-Plugin      'jwhitley/vim-preserve'
-Plugin        'rodjek/vim-puppet'
-Plugin        'henrik/vim-qargs'
-Plugin         'tpope/vim-rails'
-Plugin         'tpope/vim-repeat'
-Plugin      'jwhitley/vim-repotools'
-Plugin      'vim-ruby/vim-ruby'
-Plugin        'sunaku/vim-ruby-minitest'
-Plugin      'Raimondi/vim_search_objects'
-Plugin      'goldfeld/vim-seek'
-Plugin         'mhinz/vim-signify'
-Plugin      'jpalardy/vim-slime'
-Plugin     'duganchen/vim-soy'
-Plugin         'tpope/vim-surround'
-Plugin          'kana/vim-textobj-entire'
-Plugin          'kana/vim-textobj-line'
-Plugin      'nelstrom/vim-textobj-rubyblock'
-Plugin          'kana/vim-textobj-user'
-Plugin      'jwhitley/vim-vimperator'
-Plugin      'jwhitley/vim-visual-star-search'
-Plugin       'skalnik/vim-vroom'
-Plugin        'troydm/zoomwintab.vim'
+Plug       'mileszs/ack.vim'
+Plug         'rking/ag.vim'
+Plug           'sjl/badwolf'
+Plug   'vim-scripts/bufkill.vim'
+Plug   'vim-scripts/camelcasemotion'
+Plug     'JulesWang/css.vim'
+Plug  'editorconfig/editorconfig-vim'
+Plug           'sjl/clam.vim'
+Plug         'rhysd/clever-f.vim'
+Plug      'ctrlpvim/ctrlp.vim'
+Plug      'Raimondi/delimitMate'
+Plug         'mattn/emmet-vim'
+Plug      'eagletmt/ghcmod-vim'
+Plug    'gregsexton/gitv'
+Plug        'henrik/git-grep-vim'
+Plug           'sjl/gundo.vim'
+Plug   'vim-scripts/keepcase.vim'
+Plug          'bitc/lushtags'
+Plug    'scrooloose/nerdtree'
+Plug        'henrik/rename.vim'
+Plug         'wting/rust.vim'
+Plug       'ciaranm/securemodelines'
+Plug    'scrooloose/syntastic'
+Plug     'godlygeek/tabular'
+Plug    'majutsushi/tagbar'
+Plug    'timcharper/textile.vim'
+Plug       'davidoc/taskpaper.vim'
+Plug      'jwhitley/Vagrantfile.vim'
+Plug        'Shougo/vimproc.vim'
+Plug         'tpope/vim-abolish'
+Plug         'bling/vim-airline'
+Plug        'kchmck/vim-coffee-script'
+Plug      'jwhitley/vim-colors-solarized'
+Plug         'tpope/vim-commentary'
+Plug         'tpope/vim-dispatch'
+Plug         'tpope/vim-endwise'
+Plug       'terryma/vim-expand-region'
+Plug         'tpope/vim-fugitive'
+Plug      'jnwhiteh/vim-golang'
+Plug          'bitc/vim-hdevtools'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug  'austintaylor/vim-indentobject'
+Plug        'wgibbs/vim-irblack'
+Plug   'digitaltoad/vim-jade'
+Plug      'pangloss/vim-javascript'
+Plug        'jelera/vim-javascript-syntax'
+Plug     'mintplant/vim-literate-coffeescript'
+Plug         'tpope/vim-markdown'
+Plug      'nelstrom/vim-markdown-folding'
+Plug         'xolox/vim-misc'
+Plug       'terryma/vim-multiple-cursors'
+Plug         'jistr/vim-nerdtree-tabs'
+Plug  'tangledhelix/vim-octopress'
+Plug      'jwhitley/vim-preserve'
+Plug        'rodjek/vim-puppet'
+Plug        'henrik/vim-qargs'
+Plug         'tpope/vim-rails'
+Plug         'tpope/vim-repeat'
+Plug      'jwhitley/vim-repotools'
+Plug      'vim-ruby/vim-ruby'
+Plug        'sunaku/vim-ruby-minitest'
+Plug      'Raimondi/vim_search_objects'
+Plug      'goldfeld/vim-seek'
+Plug         'mhinz/vim-signify'
+Plug      'jpalardy/vim-slime'
+Plug     'duganchen/vim-soy'
+Plug         'tpope/vim-surround'
+Plug          'kana/vim-textobj-entire'
+Plug          'kana/vim-textobj-line'
+Plug      'nelstrom/vim-textobj-rubyblock'
+Plug          'kana/vim-textobj-user'
+" Plug         'tpope/vim-unimpaired'
+Plug      'jwhitley/vim-vimperator'
+Plug      'jwhitley/vim-visual-star-search'
+Plug       'skalnik/vim-vroom'
+Plug        'troydm/zoomwintab.vim'
 
 if exists("s:bootstrap") && s:bootstrap
   unlet s:bootstrap
-  autocmd VimEnter * PluginInstall
+  autocmd VimEnter * PlugInstall
 endif
 
-filetype plugin indent on     " required!
+call plug#end()
