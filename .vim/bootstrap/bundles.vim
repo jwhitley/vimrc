@@ -27,7 +27,6 @@ Plug     'jwhitley/vim-matchit'
 if ! exists("vimpager")
   Plug       'tpope/vim-obsession'
   Plug 'dhruvasagar/vim-prosession'
-  Plug      'spiiph/vim-space'
 endif
 
 " Only load under tmux

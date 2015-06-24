@@ -183,8 +183,8 @@
 
 " Key Mappings {{{
   " \ is the default leader
-  let mapleader=";"
-  let maplocalleader="\<c-]>"
+  let mapleader="\<space>"
+  let maplocalleader=";"
 
   " used with neovim's :term
   if exists(':tnoremap')
