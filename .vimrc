@@ -182,8 +182,11 @@
 " }}}
 
 " Key Mappings {{{
-  " \ is the default leader
-  let mapleader="\<space>"
+  " \ is the default leader, remap to <space>.  Don't remap in vimpager, due
+  " to the massive conflict with its usage of <space>
+  if ! exists("vimpager")
+    let mapleader="\<space>"
+  endif
   let maplocalleader=";"
 
   " used with neovim's :term
