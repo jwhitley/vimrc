@@ -544,12 +544,6 @@
     xmap s <Plug>VSurround
   " }}}
 
-  " vim-space {{{
-    " Avoid conflict on ]c and [c mappings with vim-signify
-    " See https://github.com/spiiph/vim-space/issues/20
-    let g:space_no_diff = 1
-  " }}}
-
   " vim-signify {{{
     let g:signify_sign_change = '~'
   " }}}
