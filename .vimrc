@@ -535,6 +535,10 @@
     \ }
   " }}}
 
+  " vim-sneak {{{
+    let g:sneak#s_next = 1
+  " }}}
+
   " vim-slime {{{
     let g:slime_target = "tmux"
   " }}}
