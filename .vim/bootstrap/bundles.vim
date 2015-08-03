@@ -74,7 +74,7 @@ Plug        'kchmck/vim-coffee-script'
 Plug      'jwhitley/vim-colors-solarized'
 Plug         'tpope/vim-commentary'
 Plug         'tpope/vim-dispatch'
-Plug   'elixir-lang/vim-elixir'
+Plug   'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 Plug         'tpope/vim-endwise'
 Plug       'terryma/vim-expand-region'
 Plug         'tpope/vim-fugitive'
