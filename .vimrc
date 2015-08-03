@@ -385,7 +385,7 @@
       \ 'types': {
         \ 1: ['.config/vcsh/', 'cd %s && vcsh-ls-files'],
         \ 2: ['.bzr/', 'cd %s && echo bzr'],
-        \ 3: ['.git/', 'cd %s && git ls-files -co --exclude-standard'],
+        \ 3: ['.git', 'cd %s && git ls-files -co --exclude-standard'],
         \ 4: ['.hg/',  'cd %s && hg status -cu | cut -f 2 -d" " | sort'],
         \ }
       \ }
