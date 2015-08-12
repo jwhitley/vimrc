@@ -569,6 +569,15 @@
     if executable($HOME . '/.rbenv/shims/ruby')
       let g:syntastic_ruby_exec = $HOME . '/.rbenv/shims/ruby'
     endif
+
+    " Use flow if a flowconfig is in the project directory
+    augroup Syntastic
+      autocmd!
+      autocmd FileType javascript if filereadable(getcwd()."/.eslintrc") |
+          \ let b:syntastic_checkers = ["eslint"] | endif
+      autocmd FileType javascript if filereadable(getcwd()."/.flowconfig") |
+          \ let b:syntastic_checkers = ["flow"] | endif
+    augroup END
   " }}}
 
   " delimitMate {{{
