@@ -570,13 +570,24 @@
       let g:syntastic_ruby_exec = $HOME . '/.rbenv/shims/ruby'
     endif
 
-    " Use flow if a flowconfig is in the project directory
+
+    function! ConfigureEslint()
+      if filereadable(getcwd() . '/.eslintrc')
+        let b:syntastic_checkers = ['eslint']
+
+        " Prefer a locally installed eslint, if available
+        let local_eslint = getcwd() . '/node_modules/.bin/eslint'
+        if executable(local_eslint)
+          let g:syntastic_javascript_eslint_exec = local_eslint
+        endif
+      endif 
+    endfunction
+
     augroup Syntastic
       autocmd!
-      autocmd FileType javascript if filereadable(getcwd()."/.eslintrc") |
-          \ let b:syntastic_checkers = ["eslint"] | endif
-      autocmd FileType javascript if filereadable(getcwd()."/.flowconfig") |
-          \ let b:syntastic_checkers = ["flow"] | endif
+      autocmd FileType javascript call ConfigureEslint()
+      autocmd FileType javascript if filereadable(getcwd() . '/.flowconfig') |
+          \ let b:syntastic_checkers = ['flow'] | endif
     augroup END
   " }}}
 
