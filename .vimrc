@@ -418,7 +418,7 @@
   " emmet {{{
     let g:user_emmet_install_global = 0
     let g:user_emmet_leader_key='<C-e>'
-    autocmd FileType php,html,css EmmetInstall
+    autocmd FileType javascript,php,html,css EmmetInstall
   " }}}
 
   " tabular {{{
