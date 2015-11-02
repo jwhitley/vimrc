@@ -13,8 +13,14 @@
   " Establish the .vim directory relative to this script, so that isolated
   " testing of this file in a clone repo works.
   let g:vimrc_home=expand("<sfile>:h")
+  if has('nvim')
+    let g:vimrc_home.="/"
+  else
+    let g:vimrc_home.="/.vim/"
+  endif
+
   function! Dot_vim(path)
-    return g:vimrc_home."/.vim/".a:path
+    return g:vimrc_home.a:path
   endfunction
 
   " Enable nvim's true color mode
