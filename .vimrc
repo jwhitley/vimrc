@@ -13,7 +13,10 @@
   " Establish the .vim directory relative to this script, so that isolated
   " testing of this file in a clone repo works.
   let g:vimrc_home=expand("<sfile>:h")
-  if has('nvim')
+  " Attempt to detect whether we've got a startfile using a neovim-style path
+  " layout (.config/nvim/init.vim and .config/nvim) or a traditional vim style
+  " layout (.vimrc and .vim/)
+  if expand("<sfile>:t") == "init.vim"
     let g:vimrc_home.="/"
   else
     let g:vimrc_home.="/.vim/"
