@@ -109,17 +109,16 @@
   set listchars=tab:⤑\ ,trail:·,eol:¬
 
   set background=dark
-  if filereadable(Dot_vim("bundle/vim-colors-solarized/colors/solarized.vim"))
-    let g:solarized_termtrans=1
-    let g:solarized_termcolors=256
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="normal"
-    augroup InitColorScheme
-      autocmd!
-      au VimEnter * colorscheme solarized | AirlineTheme solarized
-    augroup END
-    call togglebg#map("<F5>")
-  endif
+  augroup InitColorScheme
+    autocmd!
+    au VimEnter * colorscheme ir_black | AirlineTheme badwolf
+    " Non-default backgrounds are the dumbest damn defaults.  Glaring and
+    " unreadable, especially if spell is enabled in a code buffer.
+    au VimEnter * hi SpellBad cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    au VimEnter * hi SpellCap cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    au VimEnter * hi SpellRare cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    au VimEnter * hi SpellLocal cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+  augroup END
 
   " Always display the status line, even in the last window
   " -- particularly useful with powerline
