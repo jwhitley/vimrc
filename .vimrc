@@ -591,11 +591,17 @@
       endif 
     endfunction
 
+    function! ConfigureFlow()
+      if filereadable(getcwd() . '/.flowconfig')
+        let b:syntastic_checkers = ['flow']
+        let g:syntastic_javascript_flow_exe = 'flow status --show-all-errors --json'
+      endif
+    endfunction
+
     augroup Syntastic
       autocmd!
       autocmd FileType javascript call ConfigureEslint()
-      autocmd FileType javascript if filereadable(getcwd() . '/.flowconfig') |
-          \ let b:syntastic_checkers = ['flow'] | endif
+      autocmd FileType javascript call ConfigureFlow()
     augroup END
   " }}}
 
