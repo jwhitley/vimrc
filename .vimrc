@@ -547,6 +547,20 @@
     \ }
   " }}}
 
+  " vim-jsx {{{
+  function! ConfigureJSX()
+    " Use the presence of .flowconfig as a proxy for a JSX project 
+    if filereadable(getcwd() . '/.flowconfig')
+      let g:jsx_ext_required = 0
+    endif
+  endfunction
+
+  augroup JSX
+    autocmd!
+    autocmd FileType javascript call ConfigureJSX()
+  augroup END
+  " }}}
+
   " vim-sneak {{{
     let g:sneak#s_next = 1
   " }}}
