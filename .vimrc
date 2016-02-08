@@ -159,12 +159,9 @@
     set guioptions-=T
     set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h16,Anonymous\ Pro\ for\ Powerline:h16,Menlo:h18:Consolas\ Regular:h16,Courier\ New\ Regular:h18
 
-    if has('gui_running')
+    if has('gui_macvim')
       set lines=50
       set columns=84
-    endif
-
-    if has('gui_macvim')
       set transparency=3
     endif
   " }}}
