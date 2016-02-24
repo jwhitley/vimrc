@@ -424,6 +424,9 @@
     let g:user_emmet_install_global = 0
     let g:user_emmet_leader_key='<C-e>'
     autocmd FileType javascript,php,html,css EmmetInstall
+    let g:user_emmet_settings = {
+      \ 'javascript.jsx': { 'extends': 'jsx' }
+    \ }
   " }}}
 
   " tabular {{{
@@ -546,7 +549,7 @@
 
   " vim-jsx {{{
   function! ConfigureJSX()
-    " Use the presence of .flowconfig as a proxy for a JSX project 
+    " Use the presence of .flowconfig as a proxy for a JSX project
     if filereadable(getcwd() . '/.flowconfig')
       let g:jsx_ext_required = 0
     endif
@@ -599,7 +602,7 @@
         if executable(local_eslint)
           let g:syntastic_javascript_eslint_exec = local_eslint
         endif
-      endif 
+      endif
     endfunction
 
     function! ConfigureFlow()
