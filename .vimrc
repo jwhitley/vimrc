@@ -179,6 +179,10 @@
   set shiftround
   set softtabstop=2
 
+  function! TrimTrailingWhitespace()
+    keeppattern %s/\s\+$//e
+  endfunction
+
   " Syntax-specific settings
   let hs_highlight_types = 1
   let hs_highlight_more_types = 1
@@ -660,6 +664,12 @@
     autocmd FileType markdown setlocal autoindent
     autocmd Filetype markdown,txt,gitcommit setlocal spell
     autocmd FileType go setlocal noexpandtab ts=4 sw=4 sts=4
+
+    " Filetypes to auto-trim trailing whitespace
+    autocmd FileType javascript,ruby autocmd FileWritePre   * :call TrimTrailingWhitespace()
+    autocmd FileType javascript,ruby autocmd FileAppendPre  * :call TrimTrailingWhitespace()
+    autocmd FileType javascript,ruby autocmd FilterWritePre * :call TrimTrailingWhitespace()
+    autocmd FileType javascript,ruby autocmd BufWritePre    * :call TrimTrailingWhitespace()
 
     " Jump to last cursor position unless it's invalid or in an event handler
     autocmd BufReadPost *
