@@ -245,6 +245,10 @@
   " Tired of :W producing an annoying error
   command W w
 
+  " Write file without a final eol
+  command WN setlocal binary noeol | w
+  command WNQ setlocal binary noeol | wq
+
   " F1 better as ESC than help
   inoremap <F1> <ESC>
   nnoremap <F1> <ESC>
