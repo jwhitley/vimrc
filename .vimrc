@@ -692,7 +692,7 @@
     " Close vim if the only window left open is a NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-    autocmd BufNewFile,BufRead Guardfile,Podfile,Fastfile set filetype=ruby
+    autocmd BufNewFile,BufRead Guardfile,Podfile,Fastfile,Cartfile set filetype=ruby
     autocmd BufNewFile,BufRead .gitconfig.local set filetype=gitconfig
   augroup END
 
