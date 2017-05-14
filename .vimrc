@@ -107,6 +107,10 @@
 " Vim UI {{{
   set backspace=indent,eol,start     " backspace over everything in insert mode
   set listchars=tab:⤑\ ,trail:·,eol:¬
+  " Enable Neovim's incremental substitute support
+  if has('nvim')
+    set inccommand=nosplit
+  endif
 
   set background=dark
   augroup InitColorScheme
@@ -220,9 +224,10 @@
     nnoremap <localleader>c :tabnew \| term<cr>
     nnoremap <localleader>\| :vsp \| term<cr>
     nnoremap <localleader>- :sp \| term<cr>
+    nnoremap <localleader>k :setlocal scrollback=1 \| setlocal scrollback=100000<cr>
     augroup NeovimTerminal
       autocmd!
-      autocmd TermOpen * let b:terminal_scrollback_buffer_size=20000
+      autocmd TermOpen * setlocal scrollback=100000
       autocmd TermOpen * nnoremap <cr> i
     augroup END
   endif
@@ -719,7 +724,7 @@
       if !has("gui_running")
           "silent! necessary otherwise throws errors when using command
           "line window.
-          autocmd BufEnter,CursorHold,CursorHoldI,CursorMoved,CursorMovedI,FocusGained,BufEnter,FocusLost,WinLeave * checktime
+          autocmd BufEnter,CursorHold,CursorHoldI,CursorMoved,CursorMovedI,FocusGained,BufEnter,FocusLost,WinLeave * if expand('%') !=# '[Command Line]' | checktime | endif
       endif
   augroup END
 " }}}
