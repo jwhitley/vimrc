@@ -597,6 +597,12 @@
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
   " }}}
 
+  " w0rp/ale {{{
+  let g:ale_linters = {
+  \  'java': [],
+  \}
+  " }}}
+
   " Syntastic {{{
     let g:syntastic_html_tidy_ignore_errors = [
           \ "proprietary attribute",
@@ -625,11 +631,11 @@
       endif
     endfunction
 
-    augroup Syntastic
-      autocmd!
-      autocmd FileType javascript call ConfigureEslint()
-      autocmd FileType javascript call ConfigureFlow()
-    augroup END
+    " augroup Syntastic
+    "   autocmd!
+    "   autocmd FileType javascript call ConfigureEslint()
+    "   autocmd FileType javascript call ConfigureFlow()
+    " augroup END
   " }}}
 
   " delimitMate {{{
