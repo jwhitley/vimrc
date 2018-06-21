@@ -207,7 +207,7 @@
   endif
   let maplocalleader=";"
 
-  " used with neovim's :term
+  " used with vim's :terminal and neovim's :term
   if exists(':tnoremap')
     " Term mode mappings
     tnoremap <c-h> <c-\><c-n><c-w>h
@@ -220,16 +220,18 @@
     tnoremap <silent> <localleader>z <c-\><c-n>:ZoomWinTabToggle<cr>
     nnoremap <silent> <localleader>z :ZoomWinTabToggle<cr>
 
-    " Normal-mode mappings for use with term
-    nnoremap <localleader>c :tabnew \| term<cr>
-    nnoremap <localleader>\| :vsp \| term<cr>
-    nnoremap <localleader>- :sp \| term<cr>
-    nnoremap <localleader>k :setlocal scrollback=1 \| setlocal scrollback=100000<cr>
-    augroup NeovimTerminal
-      autocmd!
-      autocmd TermOpen * setlocal scrollback=100000
-      autocmd TermOpen * nnoremap <cr> i
-    augroup END
+    " Normal-mode mappings for use with :term
+    if has('nvim')
+      nnoremap <localleader>c :tabnew \| term<cr>
+      nnoremap <localleader>\| :vsp \| term<cr>
+      nnoremap <localleader>- :sp \| term<cr>
+      nnoremap <localleader>k :setlocal scrollback=1 \| setlocal scrollback=100000<cr>
+      augroup NeovimTerminal
+        autocmd!
+        autocmd TermOpen * setlocal scrollback=100000
+        autocmd TermOpen * nnoremap <cr> i
+      augroup END
+    endif
   endif
 
   " ... and temporarily lock out \ until we're fully switched to ;
