@@ -61,6 +61,7 @@ Plug         'vim-scripts/keepcase.vim'
 Plug                'bitc/lushtags'
 Plug            'jwhitley/mxml.vim'
 Plug          'scrooloose/nerdtree'
+Plug                'chr4/nginx.vim'
 Plug              'henrik/rename.vim'
 Plug           'rust-lang/rust.vim', { 'for': ['rs'] }
 Plug             'ciaranm/securemodelines'
