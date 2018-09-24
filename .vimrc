@@ -682,6 +682,10 @@
     autocmd Filetype markdown,txt,gitcommit setlocal spell
     autocmd FileType go setlocal noexpandtab ts=4 sw=4 sts=4
 
+    " Set Mac .mailsignature files to use html syntax
+    autocmd BufNewFile,BufRead *.mailsignature set ft=mailsignature
+    autocmd BufNewFile,BufRead *.mailsignature set syntax=html
+
     " Filetypes to auto-trim trailing whitespace
     autocmd FileType javascript,ruby autocmd FileWritePre   * :call TrimTrailingWhitespace()
     autocmd FileType javascript,ruby autocmd FileAppendPre  * :call TrimTrailingWhitespace()
