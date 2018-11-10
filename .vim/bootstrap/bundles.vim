@@ -68,7 +68,7 @@ Plug                'ncm2/ncm2-path'
 Plug                'ncm2/ncm2-tagprefix'
 Plug          'scrooloose/nerdtree'
 Plug                'chr4/nginx.vim'
-Plug         'mhartington/nvim-typescript'
+Plug         'mhartington/nvim-typescript', { 'do': './install.sh \| UpdateRemotePlugins' }
 Plug               'roxma/nvim-yarp'
 Plug              'henrik/rename.vim'
 Plug           'rust-lang/rust.vim', { 'for': ['rs'] }
@@ -98,7 +98,6 @@ Plug        'austintaylor/vim-indentobject'
 Plug            'jwhitley/vim-irblack'
 Plug            'pangloss/vim-javascript'
 Plug                 'mxw/vim-jsx'
-Plug            'peitalin/vim-jsx-typescript'
 Plug            'jwhitley/vim-literate-coffeescript', { 'for': ['litcoffee'] }
 Plug               'tpope/vim-markdown'
 Plug            'nelstrom/vim-markdown-folding'
