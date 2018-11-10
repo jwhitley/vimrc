@@ -367,21 +367,6 @@
 " }}}
 
 " Plugins {{{
-  " LanguageClient-neovim {{{
-    " Required for operations modifying multiple buffers like rename.
-    set hidden
-
-    let g:LanguageClient_serverCommands = {
-        \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-        \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-        \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-        \ 'python': ['/usr/local/bin/pyls'],
-        \ }
-
-    " Automatically start language servers.
-    let g:LanguageClient_autoStart = 1
-  " }}}
-
   " vim-airline {{{
     set noshowmode                     " Redundant when used with airline/powerline
     let g:airline_powerline_fonts = 1
@@ -603,6 +588,44 @@
     let g:ale_linters = {
     \  'java': [],
     \}
+  " }}}
+
+  " Ncm2 {{{
+    " enable ncm2 for all buffers
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+
+    " Affects the visual representation of what happens after you hit <C-x><C-o>
+    " https://neovim.io/doc/user/insert.html#i_CTRL-X_CTRL-O
+    " https://neovim.io/doc/user/options.html#'completeopt'
+    "
+    " This will show the popup menu even if there's only one match (menuone),
+    " prevent automatic selection (noselect) and prevent automatic text injection
+    " into the current line (noinsert).
+    autocmd User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect
+    autocmd User Ncm2PopupClose set completeopt=menuone
+  " }}}
+
+  " LanguageClient-neovim {{{
+    " Required for operations modifying multiple buffers like rename.
+    set hidden
+
+    let g:LanguageClient_serverCommands = {
+        \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+        \ 'python': ['/usr/local/bin/pyls'],
+        \ }
+
+    if executable('javascript-typescript-stdio')
+      let js_ts_serverCommands = {
+        \ 'javascript': ['javascript-typescript-stdio'],
+        \ 'javascript.jsx': ['javascript-typescript-stdio'],
+        \ 'typescript': ['javascript-typescript-stdio'],
+        \ 'typescript.tsx': ['javascript-typescript-stdio'],
+      \ }
+      call extend(g:LanguageClient_serverCommands, js_ts_serverCommands)
+    endif
+
+    " Automatically start language servers.
+    let g:LanguageClient_autoStart = 1
   " }}}
 
   " Syntastic {{{
