@@ -31,7 +31,6 @@
     if !exists('$NVIM_TUI_ENABLE_TRUE_COLOR')
       let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     endif
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   endif
 " }}}
 
@@ -368,6 +367,21 @@
 " }}}
 
 " Plugins {{{
+  " LanguageClient-neovim {{{
+    " Required for operations modifying multiple buffers like rename.
+    set hidden
+
+    let g:LanguageClient_serverCommands = {
+        \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+        \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+        \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+        \ 'python': ['/usr/local/bin/pyls'],
+        \ }
+
+    " Automatically start language servers.
+    let g:LanguageClient_autoStart = 1
+  " }}}
+
   " vim-airline {{{
     set noshowmode                     " Redundant when used with airline/powerline
     let g:airline_powerline_fonts = 1
@@ -562,20 +576,6 @@
     \ }
   " }}}
 
-  " vim-jsx {{{
-  function! ConfigureJSX()
-    " Use the presence of .flowconfig as a proxy for a JSX project
-    if filereadable(getcwd() . '/.flowconfig')
-      let g:jsx_ext_required = 0
-    endif
-  endfunction
-
-  augroup JSX
-    autocmd!
-    autocmd FileType javascript call ConfigureJSX()
-  augroup END
-  " }}}
-
   " vim-sneak {{{
     let g:sneak#s_next = 1
   " }}}
@@ -600,9 +600,9 @@
   " }}}
 
   " w0rp/ale {{{
-  let g:ale_linters = {
-  \  'java': [],
-  \}
+    let g:ale_linters = {
+    \  'java': [],
+    \}
   " }}}
 
   " Syntastic {{{
