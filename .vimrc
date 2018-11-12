@@ -27,10 +27,8 @@
   endfunction
 
   " Enable nvim's true color mode
-  if has('nvim') && exists('$ITERM_SESSION_ID')
-    if !exists('$NVIM_TUI_ENABLE_TRUE_COLOR')
-      let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
+  if has('termguicolors')
+    set termguicolors
   endif
 " }}}
 
