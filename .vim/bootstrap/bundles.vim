@@ -76,6 +76,7 @@ Plug             'ciaranm/securemodelines'
 Plug               'keith/swift.vim', { 'for': ['swift'] }
 Plug           'godlygeek/tabular'
 Plug          'majutsushi/tagbar'
+Plug            'jwhitley/tender.vim'
 Plug            'jwhitley/Vagrantfile.vim'
 Plug              'Shougo/vimproc.vim'
 Plug               'tpope/vim-abolish'

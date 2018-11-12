@@ -112,7 +112,7 @@
   set background=dark
   augroup InitColorScheme
     autocmd!
-    au VimEnter * colorscheme ir_black | AirlineTheme badwolf
+    au VimEnter * colorscheme tender | AirlineTheme badwolf
     " Non-default backgrounds are the dumbest damn defaults.  Glaring and
     " unreadable, especially if spell is enabled in a code buffer.
     au VimEnter * hi SpellBad cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
