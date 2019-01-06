@@ -585,6 +585,7 @@
   " w0rp/ale {{{
     let g:ale_linters = {
     \  'java': [],
+    \  'swift': [],
     \}
   " }}}
 
