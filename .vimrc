@@ -590,18 +590,20 @@
   " }}}
 
   " Ncm2 {{{
-    " enable ncm2 for all buffers
-    autocmd BufEnter * call ncm2#enable_for_buffer()
+    if exists('ncm2')
+      " enable ncm2 for all buffers
+      autocmd BufEnter * call ncm2#enable_for_buffer()
 
-    " Affects the visual representation of what happens after you hit <C-x><C-o>
-    " https://neovim.io/doc/user/insert.html#i_CTRL-X_CTRL-O
-    " https://neovim.io/doc/user/options.html#'completeopt'
-    "
-    " This will show the popup menu even if there's only one match (menuone),
-    " prevent automatic selection (noselect) and prevent automatic text injection
-    " into the current line (noinsert).
-    autocmd User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect
-    autocmd User Ncm2PopupClose set completeopt=menuone
+      " Affects the visual representation of what happens after you hit <C-x><C-o>
+      " https://neovim.io/doc/user/insert.html#i_CTRL-X_CTRL-O
+      " https://neovim.io/doc/user/options.html#'completeopt'
+      "
+      " This will show the popup menu even if there's only one match (menuone),
+      " prevent automatic selection (noselect) and prevent automatic text injection
+      " into the current line (noinsert).
+      autocmd User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect
+      autocmd User Ncm2PopupClose set completeopt=menuone
+    endif
   " }}}
 
   " LanguageClient-neovim {{{
