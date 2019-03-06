@@ -103,7 +103,7 @@ Plug                 'mxw/vim-jsx'
 Plug            'jwhitley/vim-literate-coffeescript', { 'for': ['litcoffee'] }
 Plug               'tpope/vim-markdown'
 Plug            'nelstrom/vim-markdown-folding'
-Plug              'jxnblk/vim-mdx-js'
+Plug            'jwhitley/vim-mdx-js'
 Plug               'xolox/vim-misc'
 Plug             'terryma/vim-multiple-cursors'
 Plug               'jistr/vim-nerdtree-tabs'
