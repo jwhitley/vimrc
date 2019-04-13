@@ -95,7 +95,7 @@
   set undodir=~/.vimundo
 
   " Store temporary files in a central spot
-  let vimtmp = $HOME . '/.tmp/' . getpid()
+  let vimtmp = $HOME . '/.vimtmp/' . getpid()
   silent! call mkdir(vimtmp, "p", 0700)
   let &backupdir=vimtmp
   let &directory=vimtmp
