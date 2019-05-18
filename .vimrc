@@ -613,6 +613,7 @@
     let g:LanguageClient_serverCommands = {
         \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
         \ 'python': ['/usr/local/bin/pyls'],
+        \ 'reason': ['~/local/bin/reason-language-server.exe']
         \ }
 
     if executable('javascript-typescript-stdio')
