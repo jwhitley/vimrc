@@ -32,6 +32,10 @@
   endif
 " }}}
 
+" Providers {{{
+  let g:loaded_python_provider = 1
+" }}}
+
 " Bundles {{{
   exec "source ".Dot_vim("bootstrap/bundles.vim")
 " }}}
