@@ -580,12 +580,6 @@
     let g:signify_sign_change = '~'
   " }}}
 
-  " UltiSnips {{{
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<tab>"
-    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-  " }}}
-
   " w0rp/ale {{{
     let g:ale_linters = {
     \  'java': [],
