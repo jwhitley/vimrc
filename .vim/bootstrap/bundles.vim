@@ -123,7 +123,7 @@ Plug               'tpope/vim-surround'
 Plug           'jasonlong/vim-textobj-css'
 Plug                'kana/vim-textobj-entire'
 Plug                'kana/vim-textobj-line'
-Plug            'nelstrom/vim-textobj-rubyblock'
+Plug            'nelstrom/vim-textobj-rubyblock', { 'for': ['rb'] }
 Plug                'kana/vim-textobj-user'
 Plug            'jwhitley/vim-visual-star-search'
 Plug              'troydm/zoomwintab.vim'
