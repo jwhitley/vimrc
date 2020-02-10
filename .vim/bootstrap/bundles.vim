@@ -53,6 +53,7 @@ endif
 Plug             'mileszs/ack.vim'
 Plug               'rking/ag.vim'
 Plug                'w0rp/ale'
+Plug           'jiangmiao/auto-pairs'
 Plug                 'sjl/badwolf'
 Plug         'vim-scripts/bufkill.vim'
 Plug         'vim-scripts/camelcasemotion'
@@ -60,7 +61,6 @@ Plug           'JulesWang/css.vim', { 'for': ['css'] }
 Plug        'editorconfig/editorconfig-vim'
 Plug               'rhysd/clever-f.vim'
 Plug            'ctrlpvim/ctrlp.vim'
-Plug            'Raimondi/delimitMate'
 Plug            'jwhitley/dtd.vim', { 'for': ['dtd'] }
 Plug               'mattn/emmet-vim'
 Plug            'eagletmt/ghcmod-vim'
