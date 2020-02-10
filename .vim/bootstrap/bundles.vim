@@ -26,18 +26,11 @@ if ! exists("vimpager")
 " These plugins do not coexist well with vimpager; don't load them in vimpager
 " sessions.
   Plug       'tpope/vim-obsession'
-  Plug 'dhruvasagar/vim-prosession'
+  Plug 'dhruvasagar/vim-prosession'   " depends on tpope/vim-obsession
+
 " Optimize vimpager load times by omitting these plugins
-  Plug              'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug            'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-  Plug                'ncm2/ncm2'
-  Plug                'ncm2/ncm2-bufword'
-  Plug                'ncm2/ncm2-html-subscope'
-  Plug                'ncm2/ncm2-markdown-subscope'
-  Plug                'ncm2/ncm2-path'
-  Plug                'ncm2/ncm2-tagprefix'
-  Plug         'mhartington/nvim-typescript', { 'do': './install.sh' }
-  Plug               'roxma/nvim-yarp'
+  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+  Plug    'neoclide/coc.nvim', {'branch': 'release'}
 endif
 
 " Only load under tmux
@@ -52,7 +45,6 @@ endif
 
 Plug             'mileszs/ack.vim'
 Plug               'rking/ag.vim'
-Plug                'w0rp/ale'
 Plug           'jiangmiao/auto-pairs'
 Plug                 'sjl/badwolf'
 Plug         'vim-scripts/bufkill.vim'
