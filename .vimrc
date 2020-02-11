@@ -410,6 +410,7 @@
           \ 'coc-json',
           \ 'coc-reason',
           \ 'coc-tsserver',
+          \ 'coc-vimlsp',
           \]
 
     " Use tab for trigger completion with characters ahead and navigate.
@@ -428,11 +429,23 @@
     nmap <silent> [g <Plug>(coc-diagnostic-prev)
     nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-    " Remap keys for gotos
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gi <Plug>(coc-implementation)
-    nmap <silent> gr <Plug>(coc-references)
+    " Note: These do not work with `noremap`
+    nmap <leader>lc <Plug>(coc-references)
+    nmap <leader>ld <Plug>(coc-definition)
+    nmap <leader>li <Plug>(coc-implementation)
+    nmap <leader>lr <Plug>(coc-rename)
+    nmap <leader>ls <Plug>(coc-documentSymbols)
+    nmap <leader>lt <Plug>(coc-type-definition)
+
+    vmap <leader>lf <Plug>(coc-format-selected)
+    nmap <leader>lf <Plug>(coc-format-selected)
+
+    nmap <silent> [c <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+    " Navigation snippet sections with C-j/k
+    let g:coc_snippet_next = '<C-j>'
+    let g:coc_snippet_prev = '<C-k>'
 
     " Use K to show documentation in preview window
     nnoremap <silent> K :call <SID>show_documentation()<CR>
