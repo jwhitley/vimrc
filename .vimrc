@@ -402,6 +402,16 @@
     " Prevent |ins-completion-menu| messages
     set shortmess+=c
 
+    let g:coc_global_extensions = [
+          \ 'coc-css',
+          \ 'coc-emoji',
+          \ 'coc-highlight',
+          \ 'coc-html',
+          \ 'coc-json',
+          \ 'coc-reason',
+          \ 'coc-tsserver',
+          \]
+
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by
     " other plugin.
