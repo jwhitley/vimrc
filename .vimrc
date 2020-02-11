@@ -413,14 +413,10 @@
           \ 'coc-vimlsp',
           \]
 
-    " Use tab for trigger completion with characters ahead and navigate.
-    " Use command ':verbose imap <tab>' to make sure tab is not mapped by
-    " other plugin.
-    inoremap <silent><expr> <tab>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<TAB>" :
-          \ coc#refresh()
-    inoremap <expr> <s-tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+    inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<tab>"
+
+    inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+    inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
