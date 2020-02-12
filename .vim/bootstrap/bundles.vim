@@ -67,6 +67,7 @@ Plug              'henrik/rename.vim'
 Plug           'rust-lang/rust.vim', { 'for': ['rs'] }
 Plug             'ciaranm/securemodelines'
 Plug               'keith/swift.vim', { 'for': ['swift'] }
+Plug            'jwhitley/vim-synthwave84'
 Plug           'godlygeek/tabular'
 Plug          'majutsushi/tagbar'
 Plug            'jwhitley/tender.vim'
