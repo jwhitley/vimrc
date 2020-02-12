@@ -436,8 +436,8 @@
     vmap <leader>lf <Plug>(coc-format-selected)
     nmap <leader>lf <Plug>(coc-format-selected)
 
-    nmap <silent> [c <Plug>(coc-diagnostic-prev)
-    nmap <silent> ]c <Plug>(coc-diagnostic-next)
+    nmap <silent> [d <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
     " Navigation snippet sections with C-j/k
     let g:coc_snippet_next = '<C-j>'
