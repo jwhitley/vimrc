@@ -49,6 +49,7 @@ Plug           'jiangmiao/auto-pairs'
 Plug                 'sjl/badwolf'
 Plug         'vim-scripts/bufkill.vim'
 Plug         'vim-scripts/camelcasemotion'
+Plug         'vim-scripts/CursorLineCurrentWindow'
 Plug           'JulesWang/css.vim', { 'for': ['css'] }
 Plug        'editorconfig/editorconfig-vim'
 Plug               'rhysd/clever-f.vim'
@@ -108,6 +109,7 @@ Plug             'jremmen/vim-ripgrep'
 Plug            'vim-ruby/vim-ruby', { 'for': ['rb'] }
 Plug              'sunaku/vim-ruby-minitest', { 'for': ['rb'] }
 Plug            'Raimondi/vim_search_objects'
+Plug              'inside/vim-search-pulse'
 Plug            'justinmk/vim-sneak'
 Plug               'mhinz/vim-signify'
 Plug            'jpalardy/vim-slime'

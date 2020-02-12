@@ -502,6 +502,10 @@
 
   " }}}
 
+  " CursorLineCurrentWindow {{{
+    set cursorline   
+  " }}}
+
   " ctrlp {{{
     if !exists("g:ctrlp_extensions")
       let g:ctrlp_extensions = []
@@ -779,10 +783,6 @@
       \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") |
       \ exe "normal g`\"" |
       \ endif
-
-    " Highlight current line in windows without the cursor
-    autocmd WinEnter * setlocal nocursorline
-    autocmd WinLeave * setlocal cursorline
 
     " Override unknown filetypes in certain zsh directories
     autocmd BufNewFile,BufRead */.zfunctions/* if &ft == '' || &ft =~# '^\(conf\)$' | set filetype=zsh | endif
