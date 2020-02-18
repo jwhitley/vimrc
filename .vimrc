@@ -409,6 +409,7 @@
           \ 'coc-html',
           \ 'coc-json',
           \ 'coc-reason',
+          \ 'coc-python',
           \ 'coc-tsserver',
           \ 'coc-vimlsp',
           \]
