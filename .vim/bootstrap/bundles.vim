@@ -78,7 +78,7 @@ Plug         'vim-airline/vim-airline'
 Plug         'vim-airline/vim-airline-themes'
 Plug            'jwhitley/vim-bolt', { 'for': ['bolt'] }
 Plug              'kchmck/vim-coffee-script', { 'for': ['coffee'] }
-Plug            'jwhitley/vim-colors-solarized'
+Plug          'lifepillar/vim-colortemplate'
 Plug               'tpope/vim-commentary'
 Plug               'tpope/vim-dispatch'
 Plug         'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
