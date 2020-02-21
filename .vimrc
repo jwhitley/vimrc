@@ -701,41 +701,6 @@
     let g:signify_sign_change = '~'
   " }}}
 
-  " Syntastic {{{
-    let g:syntastic_html_tidy_ignore_errors = [
-          \ "proprietary attribute",
-          \ ]
-    if executable($HOME . '/.rbenv/shims/ruby')
-      let g:syntastic_ruby_exec = $HOME . '/.rbenv/shims/ruby'
-    endif
-
-
-    function! ConfigureEslint()
-      if filereadable(getcwd() . '/.eslintrc')
-        let b:syntastic_checkers = ['eslint']
-
-        " Prefer a locally installed eslint, if available
-        let local_eslint = getcwd() . '/node_modules/.bin/eslint'
-        if executable(local_eslint)
-          let g:syntastic_javascript_eslint_exec = local_eslint
-        endif
-      endif
-    endfunction
-
-    function! ConfigureFlow()
-      if filereadable(getcwd() . '/.flowconfig')
-        let b:syntastic_checkers = ['flow']
-        let g:syntastic_javascript_flow_exe = 'flow status --show-all-errors --json'
-      endif
-    endfunction
-
-    " augroup Syntastic
-    "   autocmd!
-    "   autocmd FileType javascript call ConfigureEslint()
-    "   autocmd FileType javascript call ConfigureFlow()
-    " augroup END
-  " }}}
-
   " vim-hdevtools {{{
     augroup Hdevtools
       autocmd!
