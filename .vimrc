@@ -399,13 +399,14 @@
     set shortmess+=c
 
     let g:coc_global_extensions = [
+          \ 'coc-actions',
           \ 'coc-css',
-          \ 'coc-emoji',
           \ 'coc-highlight',
           \ 'coc-html',
           \ 'coc-json',
           \ 'coc-reason',
           \ 'coc-python',
+          \ 'coc-spell-checker',
           \ 'coc-tsserver',
           \ 'coc-vimlsp',
           \]
@@ -469,9 +470,13 @@
       autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     augroup end
 
+    " NOTE: Requires coc-action
     " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-    xmap <leader>a  <Plug>(coc-codeaction-selected)
-    nmap <leader>a  <Plug>(coc-codeaction-selected)
+    function! s:cocActionsOpenFromSelected(type) abort
+      execute 'CocCommand actions.open ' . a:type
+    endfunction
+    xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+    nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
     " Remap for do codeAction of current line
     nmap <leader>ac  <Plug>(coc-codeaction)
