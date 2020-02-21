@@ -503,6 +503,10 @@
 
   " }}}
 
+  " vim-colortemplate {{{
+    let g:colortemplate_no_mappings = 1
+  " }}}
+
   " CursorLineCurrentWindow {{{
     set cursorline   
   " }}}
