@@ -377,6 +377,10 @@
 " }}}
 
 " Plugins {{{
+  " ag.vim {{{
+    nnoremap <leader>* *:AgFromSearch<cr>
+  " }}}
+
   " vim-airline {{{
     set noshowmode                     " Redundant when used with airline/powerline
     let g:airline_powerline_fonts = 1
@@ -388,14 +392,6 @@
       autocmd!
       au ColorScheme * AirlineTheme g:colors_name
     augroup END
-  " }}}
-
-  " vim-commentary {{{
-    let g:commentary_map_backslash = 0
-  " }}}
-
-  " matchit {{{
-    let b:match_ignorecase = 1
   " }}}
 
   " CoC {{{
@@ -500,15 +496,14 @@
 
     " use `:OR` for organize import of current buffer
     command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
-
   " }}}
 
   " vim-colortemplate {{{
     let g:colortemplate_no_mappings = 1
   " }}}
 
-  " CursorLineCurrentWindow {{{
-    set cursorline   
+  " vim-commentary {{{
+    let g:commentary_map_backslash = 0
   " }}}
 
   " ctrlp {{{
@@ -546,7 +541,20 @@
       \ 'file': '\.exe$\|\.so$\|\.dll$\|\.vagrant$' }
   "}}}
 
-  " Fugitive {{{
+  " CursorLineCurrentWindow {{{
+    set cursorline   
+  " }}}
+
+  " emmet-vim {{{
+    let g:user_emmet_install_global = 0
+    let g:user_emmet_leader_key='<C-e>'
+    autocmd FileType javascript,php,html,css EmmetInstall
+    let g:user_emmet_settings = {
+      \ 'javascript.jsx': { 'extends': 'jsx' }
+    \ }
+  " }}}
+
+  " vim-fugitive {{{
     nnoremap <silent> <leader>gs :Gstatus<CR>
     nnoremap <silent> <leader>gd :Gdiff<CR>
     nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -557,13 +565,68 @@
     nnoremap <leader>gu :Git add -u<CR>
   "}}}
 
-  " emmet {{{
-    let g:user_emmet_install_global = 0
-    let g:user_emmet_leader_key='<C-e>'
-    autocmd FileType javascript,php,html,css EmmetInstall
-    let g:user_emmet_settings = {
-      \ 'javascript.jsx': { 'extends': 'jsx' }
-    \ }
+  " gundo.vim {{{
+    nnoremap <leader>u :GundoToggle<cr>
+  " }}}
+
+  " vim-hdevtools {{{
+    augroup Hdevtools
+      autocmd!
+      autocmd FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
+      autocmd FileType haskell nnoremap <buffer> <silent> <leader>hc :HdevtoolsClear<CR>
+    augroup END
+
+    let $PATH=Dot_vim("bundle/vim-hdevtools/.cabal-sandbox/bin").":".$PATH
+  " }}}
+
+  " lushtags {{{
+    let $PATH=Dot_vim("bundle/lushtags/.cabal-sandbox/bin").":".$PATH
+  " }}}
+
+  " matchit {{{
+    let b:match_ignorecase = 1
+  " }}}
+
+  " NERDTree {{{
+    " Replace netrw with secondary NERDTree
+    let NERDTreeHijackNetrw=1
+
+    " Augmented with vim-nerdtree-tabs plugin
+    nnoremap <leader>n :NERDTreeTabsToggle<cr>
+    nnoremap <leader>fn :NERDTreeFind<cr>
+    let g:nerdtree_tabs_open_on_gui_startup=0
+  " }}}
+
+  " vim-preserve {{{
+    nnoremap <leader>$ <plug>(preserve-kill-trailing-whitespace)
+    nnoremap <leader>= <plug>(preserve-reindent-file)
+    nnoremap <leader>W <plug>(preserve-wombat)
+  " }}}
+
+  " vim-prosession {{{
+    if exists('$TMUX')
+      let g:prosession_tmux_title = 1
+    endif
+    let g:prosession_dir = Dot_vim("sessions")
+    silent! call mkdir(g:prosession_dir, "p", 0700)
+    let g:prosession_on_startup = 1
+  " }}}
+
+  " vim-signify {{{
+    let g:signify_sign_change = '~'
+  " }}}
+
+  " vim-slime {{{
+    let g:slime_target = "tmux"
+  " }}}
+
+  " vim-sneak {{{
+    let g:sneak#s_next = 1
+  " }}}
+
+  " vim-surround {{{
+    " Remap v_s to surround
+    xmap s <Plug>VSurround
   " }}}
 
   " tabular {{{
@@ -586,28 +649,6 @@
       autocmd BufRead */.vim/bootstrap/bundles.vim nnoremap <leader>ab :Tabularize bundles<cr>
       autocmd BufRead */.vim/bootstrap/bundles.vim vnoremap <leader>ab :Tabularize bundles<cr>
     augroup END
-  " }}}
-
-  " NERDTree {{{
-    " Replace netrw with secondary NERDTree
-    let NERDTreeHijackNetrw=1
-
-    " Augmented with vim-nerdtree-tabs plugin
-    nnoremap <leader>n :NERDTreeTabsToggle<cr>
-    nnoremap <leader>fn :NERDTreeFind<cr>
-    let g:nerdtree_tabs_open_on_gui_startup=0
-  " }}}
-
-  " ag.vim {{{
-    nnoremap <leader>* *:AgFromSearch<cr>
-  " }}}
-
-  " Gundo {{{
-    nnoremap <leader>u :GundoToggle<cr>
-  " }}}
-
-  " lushtags {{{
-    let $PATH=Dot_vim("bundle/lushtags/.cabal-sandbox/bin").":".$PATH
   " }}}
 
   " tagbar {{{
@@ -682,48 +723,6 @@
             \ 'enumeration'    : 'e'
         \ }
     \ }
-  " }}}
-
-  " vim-sneak {{{
-    let g:sneak#s_next = 1
-  " }}}
-
-  " vim-slime {{{
-    let g:slime_target = "tmux"
-  " }}}
-
-  " vim-surround {{{
-    " Remap v_s to surround
-    xmap s <Plug>VSurround
-  " }}}
-
-  " vim-signify {{{
-    let g:signify_sign_change = '~'
-  " }}}
-
-  " vim-hdevtools {{{
-    augroup Hdevtools
-      autocmd!
-      autocmd FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
-      autocmd FileType haskell nnoremap <buffer> <silent> <leader>hc :HdevtoolsClear<CR>
-    augroup END
-
-    let $PATH=Dot_vim("bundle/vim-hdevtools/.cabal-sandbox/bin").":".$PATH
-  " }}}
-
-  " vim-preserve {{{
-    nnoremap <leader>$ <plug>(preserve-kill-trailing-whitespace)
-    nnoremap <leader>= <plug>(preserve-reindent-file)
-    nnoremap <leader>W <plug>(preserve-wombat)
-  " }}}
-
-  " vim-prosession {{{
-    if exists('$TMUX')
-      let g:prosession_tmux_title = 1
-    endif
-    let g:prosession_dir = Dot_vim("sessions")
-    silent! call mkdir(g:prosession_dir, "p", 0700)
-    let g:prosession_on_startup = 1
   " }}}
 " }}}
 
