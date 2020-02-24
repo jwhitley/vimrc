@@ -572,6 +572,12 @@
     nnoremap <silent> <leader>gp :Git push<CR>
     nnoremap <silent> <leader>gw :Gwrite<CR>
     nnoremap <leader>gu :Git add -u<CR>
+
+    " Restore prior fugitive status binding for 'q'
+    augroup Fugitive
+      autocmd!
+      autocmd FileType fugitive nnoremap <buffer> q <C-W>q
+    augroup END
   "}}}
 
   " gundo.vim {{{
