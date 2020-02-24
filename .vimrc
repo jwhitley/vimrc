@@ -560,7 +560,11 @@
   " }}}
 
   " vim-fugitive {{{
-    nnoremap <silent> <leader>gs :Gstatus<CR>
+    " Gstatus behavior changed its default split behavior some time ago.
+    " This reverts to an analogue of the old behavior: horizontal split
+    " of the current window, not too tall.
+    nnoremap <silent> <leader>gs :12sp<Bar>Gedit :<CR>
+
     nnoremap <silent> <leader>gd :Gdiff<CR>
     nnoremap <silent> <leader>gc :Gcommit<CR>
     nnoremap <silent> <leader>gb :Gblame<CR>
