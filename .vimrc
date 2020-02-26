@@ -549,7 +549,7 @@
   "}}}
 
   " CursorLineCurrentWindow {{{
-    set cursorline   
+    set cursorline
   " }}}
 
   " emmet-vim {{{
