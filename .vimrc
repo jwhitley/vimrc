@@ -751,7 +751,6 @@
     autocmd FileType bzr setlocal tw=72
     autocmd FileType gitcommit setlocal fo+=t fo-=q tw=72
     autocmd FileType markdown setlocal autoindent wrap tw=72
-    autocmd Filetype markdown,txt,gitcommit setlocal spell
     autocmd FileType go setlocal noexpandtab ts=4 sw=4 sts=4
 
     " Set Mac .mailsignature files to use html syntax
