@@ -341,8 +341,17 @@
   nmap <leader>ev :vsp %%
   nmap <leader>et :tabe %%
 
+  " Show syntax highlighting stack for word under cursor 
+  nnoremap <silent> <F10> :call <SID>SynStack()<CR>
+  function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  endfunc
+
   " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
-  map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+  map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
   \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
   \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
