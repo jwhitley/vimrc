@@ -119,16 +119,9 @@
     set inccommand=nosplit
   endif
 
-  set background=dark
   augroup InitColorScheme
     autocmd!
     au VimEnter * colorscheme synthwave84 | AirlineTheme base16_eighties
-    " Non-default backgrounds are the dumbest damn defaults.  Glaring and
-    " unreadable, especially if spell is enabled in a code buffer.
-    au VimEnter * hi SpellBad cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
-    au VimEnter * hi SpellCap cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
-    au VimEnter * hi SpellRare cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
-    au VimEnter * hi SpellLocal cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
   augroup END
 
   " Always display the status line, even in the last window
