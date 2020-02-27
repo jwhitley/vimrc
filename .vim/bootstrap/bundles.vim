@@ -45,7 +45,6 @@ endif
 
 Plug             'mileszs/ack.vim'
 Plug               'rking/ag.vim'
-Plug           'jiangmiao/auto-pairs'
 Plug                 'sjl/badwolf'
 Plug         'vim-scripts/bufkill.vim'
 Plug         'vim-scripts/camelcasemotion'
@@ -82,7 +81,8 @@ Plug          'lifepillar/vim-colortemplate'
 Plug               'tpope/vim-commentary'
 Plug               'tpope/vim-dispatch'
 Plug         'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-Plug               'tpope/vim-endwise'
+" FIXME: endwise disabled as it conflicts with coc completion bindings
+" Plug               'tpope/vim-endwise'
 Plug             'terryma/vim-expand-region'
 Plug               'tpope/vim-fugitive'
 Plug            'jnwhiteh/vim-golang', { 'for': ['go'] }

@@ -407,14 +407,34 @@
           \ 'coc-html',
           \ 'coc-json',
           \ 'coc-reason',
+          \ 'coc-pairs',
           \ 'coc-python',
+          \ 'coc-snippets',
           \ 'coc-spell-checker',
           \ 'coc-tsserver',
           \ 'coc-vimlsp',
           \]
 
-    inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<tab>"
+    " inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<tab>"
 
+    " map <tab> to trigger completion, completion confirm, snippet expand, and
+    " jump ala VSCode. Requires coc-snippet
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? coc#_select_confirm() :
+          \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
+
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    let g:coc_snippet_next = '<tab>'
+
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+          \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    
     inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
     inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 

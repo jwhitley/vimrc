@@ -1,5 +1,5 @@
 {
-  "codeLens.enable": true,
+  "coc.preferences.formatOnType": true,
   "cSpell.userWords": [
     "subfolders"
   ]
