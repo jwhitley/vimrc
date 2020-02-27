@@ -105,7 +105,10 @@
   set undodir=~/.vimundo
 
   " Store temporary files in a central spot
-  let vimtmp = $HOME . '/.vimtmp/' . getpid()
+
+  " The trailing slash tells Vim to encode the absolute path of the file
+  " into the swap file name.
+  let vimtmp = $HOME . '/.vimtmp//'
   silent! call mkdir(vimtmp, "p", 0700)
   let &backupdir=vimtmp
   let &directory=vimtmp
