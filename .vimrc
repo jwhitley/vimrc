@@ -421,8 +421,6 @@
           \ 'coc-vimlsp',
           \]
 
-    " inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<tab>"
-
     " map <tab> to trigger completion, completion confirm, snippet expand, and
     " jump ala VSCode. Requires coc-snippet
     inoremap <silent><expr> <TAB>
