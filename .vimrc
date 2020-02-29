@@ -281,6 +281,8 @@
   cnoremap <c-e> <End>
   cnoremap <c-n> <Down>
   cnoremap <c-p> <Up>
+  cnoremap <c-j> <Down>
+  cnoremap <c-k> <Up>
 
   function MapTabs(mapcmd, keypat, ...)
     let l:cmdpat = a:0 > 0 ? a:1 : "%dgt"
