@@ -413,7 +413,6 @@
           \ 'coc-html',
           \ 'coc-json',
           \ 'coc-reason',
-          \ 'coc-pairs',
           \ 'coc-python',
           \ 'coc-snippets',
           \ 'coc-spell-checker',
