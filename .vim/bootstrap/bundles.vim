@@ -43,6 +43,9 @@ endif
 """ Unconditionally loaded plugins
 """
 
+" FIXME: endwise disabled as it conflicts with coc completion bindings
+" Plug               'tpope/vim-endwise'
+
 Plug             'mileszs/ack.vim'
 Plug               'rking/ag.vim'
 Plug                 'sjl/badwolf'
@@ -56,6 +59,7 @@ Plug            'ctrlpvim/ctrlp.vim'
 Plug            'Raimondi/delimitMate'
 Plug            'jwhitley/dtd.vim', { 'for': ['dtd'] }
 Plug               'mattn/emmet-vim'
+Plug            'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug            'eagletmt/ghcmod-vim'
 Plug          'gregsexton/gitv'
 Plug              'henrik/git-grep-vim'
@@ -69,7 +73,6 @@ Plug             'ciaranm/securemodelines'
 Plug               'keith/swift.vim', { 'for': ['swift'] }
 Plug            'jwhitley/vim-synthwave84'
 Plug           'godlygeek/tabular'
-Plug          'majutsushi/tagbar'
 Plug            'jwhitley/tender.vim'
 Plug            'jwhitley/Vagrantfile.vim'
 Plug              'Shougo/vimproc.vim'
@@ -82,8 +85,6 @@ Plug          'lifepillar/vim-colortemplate'
 Plug               'tpope/vim-commentary'
 Plug               'tpope/vim-dispatch'
 Plug         'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-" FIXME: endwise disabled as it conflicts with coc completion bindings
-" Plug               'tpope/vim-endwise'
 Plug             'terryma/vim-expand-region'
 Plug               'tpope/vim-fugitive'
 Plug            'jnwhiteh/vim-golang', { 'for': ['go'] }
@@ -122,6 +123,7 @@ Plug                'kana/vim-textobj-line'
 Plug            'nelstrom/vim-textobj-rubyblock', { 'for': ['rb'] }
 Plug                'kana/vim-textobj-user'
 Plug            'jwhitley/vim-visual-star-search'
+Plug          'liuchengxu/vista.vim'
 Plug              'troydm/zoomwintab.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 

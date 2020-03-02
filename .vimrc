@@ -665,6 +665,10 @@
     xmap s <Plug>VSurround
   " }}}
 
+  " vista.vim {{{
+    nnoremap <silent> <leader>t :Vista<cr>
+  " }}}
+
   " tabular {{{
     nnoremap <leader>a\| :Tabularize /\|<cr>
     vnoremap <leader>a\| :Tabularize /\|<cr>
@@ -685,80 +689,6 @@
       autocmd BufRead */.vim/bootstrap/bundles.vim nnoremap <leader>ab :Tabularize bundles<cr>
       autocmd BufRead */.vim/bootstrap/bundles.vim vnoremap <leader>ab :Tabularize bundles<cr>
     augroup END
-  " }}}
-
-  " tagbar {{{
-    nnoremap <silent> <leader>t :TagbarToggle<cr>
-
-    if executable('coffeetags')
-      let g:tagbar_type_coffee = {
-            \ 'ctagsbin' : 'coffeetags',
-            \ 'ctagsargs' : '',
-            \ 'kinds' : [
-            \ 'f:functions',
-            \ 'o:object',
-            \ ],
-            \ 'sro' : ".",
-            \ 'kind2scope' : {
-            \ 'f' : 'object',
-            \ 'o' : 'object',
-            \ }
-            \ }
-    endif
-
-    let g:tagbar_type_go = {
-      \ 'ctagstype': 'go',
-      \ 'kinds'     : [
-            \ 'f:func',
-            \ 't:type',
-            \ 'v:var',
-            \ 'm:method',
-      \ ]
-    \ }
-
-    let g:tagbar_type_markdown = {
-            \ 'ctagstype' : 'markdown',
-            \ 'kinds' : [
-                    \ 'h:Heading_L1',
-                    \ 'i:Heading_L2',
-                    \ 'k:Heading_L3'
-            \ ]
-    \ }
-
-    " add a definition for Objective-C to tagbar
-    let g:tagbar_type_objc = {
-        \ 'ctagstype' : 'ObjectiveC',
-        \ 'kinds'     : [
-            \ 'i:interface',
-            \ 'I:implementation',
-            \ 'p:Protocol',
-            \ 'm:Object_method',
-            \ 'c:Class_method',
-            \ 'v:Global_variable',
-            \ 'F:Object field',
-            \ 'f:function',
-            \ 'p:property',
-            \ 't:type_alias',
-            \ 's:type_structure',
-            \ 'e:enumeration',
-            \ 'M:preprocessor_macro'
-        \ ],
-        \ 'sro'        : ' ',
-        \ 'kind2scope' : {
-            \ 'i' : 'interface',
-            \ 'I' : 'implementation',
-            \ 'p' : 'Protocol',
-            \ 's' : 'type_structure',
-            \ 'e' : 'enumeration'
-        \ },
-        \ 'scope2kind' : {
-            \ 'interface'      : 'i',
-            \ 'implementation' : 'I',
-            \ 'Protocol'       : 'p',
-            \ 'type_structure' : 's',
-            \ 'enumeration'    : 'e'
-        \ }
-    \ }
   " }}}
 " }}}
 
