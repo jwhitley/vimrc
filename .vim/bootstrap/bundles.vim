@@ -59,7 +59,7 @@ Plug            'ctrlpvim/ctrlp.vim'
 Plug            'Raimondi/delimitMate'
 Plug            'jwhitley/dtd.vim', { 'for': ['dtd'] }
 Plug               'mattn/emmet-vim'
-Plug            'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug            'junegunn/fzf'
 Plug            'eagletmt/ghcmod-vim'
 Plug          'gregsexton/gitv'
 Plug              'henrik/git-grep-vim'
