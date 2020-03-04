@@ -117,8 +117,11 @@
 " Vim UI {{{
   set backspace=indent,eol,start     " backspace over everything in insert mode
   set listchars=tab:⤑\ ,trail:·,eol:¬
-  " Enable Neovim's incremental substitute support
+
   if has('nvim')
+    " Hide the end of buffer tilde; (that's a space)
+    set fillchars=eob:\ 
+    " Enable incremental substitute support
     set inccommand=nosplit
   endif
 
@@ -346,7 +349,7 @@
   nmap <leader>ev :vsp %%
   nmap <leader>et :tabe %%
 
-  " Show syntax highlighting stack for word under cursor 
+  " Show syntax highlighting stack for word under cursor
   nnoremap <silent> <F10> :call <SID>SynStack()<CR>
   function! <SID>SynStack()
     if !exists("*synstack")
@@ -437,7 +440,7 @@
 
     inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
           \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-    
+
     inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
     inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
