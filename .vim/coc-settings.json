@@ -1,5 +1,6 @@
 {
-  "codeLens.enable": "true",
+  "codeLens.enable": true,
+  "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": true,
   "cSpell.userWords": [
     "subfolders"
