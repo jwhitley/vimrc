@@ -755,7 +755,7 @@
       if !has("gui_running")
           "silent! necessary otherwise throws errors when using command
           "line window.
-          autocmd BufEnter,CursorHold,CursorHoldI,CursorMoved,CursorMovedI,FocusGained,BufEnter,FocusLost,WinLeave * if expand('%') !=# '[Command Line]' | checktime | endif
+          autocmd BufEnter,CursorHold,CursorHoldI,CursorMoved,CursorMovedI,FocusGained,BufEnter,FocusLost,WinLeave * if getcmdwintype() != '' | silent! checktime | endif
       endif
   augroup END
 " }}}
