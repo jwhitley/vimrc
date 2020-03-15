@@ -398,6 +398,7 @@
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#show_buffers = 0
     let g:airline#extensions#tabline#tab_nr_type = 1
+    let g:airline#extensions#hunks#enabled = 0
     augroup AirlineColorScheme
       autocmd!
       au ColorScheme * AirlineTheme g:colors_name
