@@ -4,5 +4,7 @@
   "coc.preferences.formatOnType": true,
   "cSpell.userWords": [
     "subfolders"
-  ]
+  ],
+  "eslint.packageManager": "yarn",
+  "eslint.quiet": true
 }
