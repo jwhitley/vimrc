@@ -18,21 +18,6 @@ Plug       'jwhitley/vim-plug'
 " Dependencies of other bundles
 Plug     'jwhitley/vim-matchit'
 
-"""
-""" Conditionally loaded plugins
-"""
-
-if ! exists("vimpager")
-" These plugins do not coexist well with vimpager; don't load them in vimpager
-" sessions.
-  Plug       'tpope/vim-obsession'
-  Plug 'dhruvasagar/vim-prosession'   " depends on tpope/vim-obsession
-
-" Optimize vimpager load times by omitting these plugins
-  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-  Plug    'neoclide/coc.nvim', {'branch': 'release'}
-endif
-
 " Only load under tmux
 if exists('$TMUX')
 Plug  'tmux-plugins/vim-tmux'
@@ -49,6 +34,7 @@ endif
 Plug             'mileszs/ack.vim'
 Plug               'rking/ag.vim'
 Plug                 'sjl/badwolf'
+Plug            'neoclide/coc.nvim', {'branch': 'release'}
 Plug         'vim-scripts/bufkill.vim'
 Plug         'vim-scripts/camelcasemotion'
 Plug         'vim-scripts/CursorLineCurrentWindow'
@@ -67,6 +53,7 @@ Plug                 'sjl/gundo.vim'
 Plug         'vim-scripts/keepcase.vim'
 Plug            'jwhitley/mxml.vim'
 Plug          'scrooloose/nerdtree'
+Plug         'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug              'henrik/rename.vim'
 Plug           'rust-lang/rust.vim', { 'for': ['rs'] }
 Plug             'ciaranm/securemodelines'
@@ -102,6 +89,8 @@ Plug            'jwhitley/vim-mdx-js'
 Plug               'xolox/vim-misc'
 Plug             'terryma/vim-multiple-cursors'
 Plug               'jistr/vim-nerdtree-tabs'
+Plug               'tpope/vim-obsession'
+Plug         'dhruvasagar/vim-prosession'   " requires vim-obsession
 Plug            'jwhitley/vim-preserve'
 Plug              'rodjek/vim-puppet'
 Plug               'tpope/vim-rails'
