@@ -605,6 +605,14 @@
     augroup END
   "}}}
 
+  " goyo.vim {{{
+    augroup Goyo
+      autocmd!
+      autocmd User GoyoEnter Limelight | set signcolumn=no
+      autocmd User GoyoLeave Limelight! | set signcolumn=auto
+    augroup END
+  " }}}
+
   " gundo.vim {{{
     nnoremap <leader>u :GundoToggle<cr>
   " }}}

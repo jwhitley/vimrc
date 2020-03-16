@@ -25,6 +25,8 @@ endif
 " FIXME: endwise disabled as it conflicts with coc completion bindings
 " Plug               'tpope/vim-endwise'
 
+Plug            'junegunn/goyo.vim'
+Plug            'junegunn/limelight.vim'
 Plug             'mileszs/ack.vim'
 Plug               'rking/ag.vim'
 Plug                 'sjl/badwolf'
