@@ -57,6 +57,7 @@ Plug               'keith/swift.vim', { 'for': ['swift'] }
 Plug            'jwhitley/vim-synthwave84'
 Plug           'godlygeek/tabular'
 Plug            'jwhitley/tender.vim'
+Plug              'thinca/vim-themis'
 Plug            'jwhitley/Vagrantfile.vim'
 Plug              'Shougo/vimproc.vim'
 Plug               'tpope/vim-abolish'
