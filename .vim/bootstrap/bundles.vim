@@ -34,7 +34,7 @@ Plug            'neoclide/coc.nvim', {'branch': 'release'}
 Plug         'vim-scripts/bufkill.vim'
 Plug         'vim-scripts/camelcasemotion'
 Plug         'vim-scripts/CursorLineCurrentWindow'
-Plug           'JulesWang/css.vim', { 'for': ['css'] }
+Plug              'hail2u/vim-css3-syntax'
 Plug        'editorconfig/editorconfig-vim'
 Plug               'rhysd/clever-f.vim'
 Plug            'ctrlpvim/ctrlp.vim'
