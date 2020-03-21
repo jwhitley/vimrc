@@ -236,9 +236,6 @@
     endif
   endif
 
-  " ... and temporarily lock out \ until we're fully switched to ;
-  nnoremap \ :echoerr "Don't do that!"<cr>
-
   " Run the last macro ...
   nnoremap Q @@
   " ... and lock out the rest of ex-mode
