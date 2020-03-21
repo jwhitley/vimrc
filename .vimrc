@@ -241,9 +241,6 @@
   " ... and lock out the rest of ex-mode
   nnoremap gQ <nop>
 
-  " Make jj a shortcut for ESC
-  inoremap jj <ESC>
-
   " <tab> matches bracket pairs
   nnoremap <tab> %
   vnoremap <tab> %
