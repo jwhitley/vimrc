@@ -257,6 +257,10 @@
   nnoremap <F1> <ESC>
   vnoremap <F1> <ESC>
 
+  " Window mappings, parallel with my tmux mappings
+  nnoremap <c-w>- <c-w>s
+  nnoremap <c-w>\| <c-w>v
+
   " Lock out arrow keys
   noremap <Up> <nop>
   noremap <Down> <nop>
