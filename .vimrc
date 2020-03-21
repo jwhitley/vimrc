@@ -206,11 +206,7 @@
 " }}}
 
 " Key Mappings {{{
-  " \ is the default leader, remap to <space>.  Don't remap in vimpager, due
-  " to the massive conflict with its usage of <space>
-  if ! exists("vimpager")
-    let mapleader="\<space>"
-  endif
+  let mapleader="\<space>"
   let maplocalleader=";"
 
   " used with vim's :terminal and neovim's :term
@@ -548,7 +544,7 @@
     let g:ctrlp_working_path_mode = 2
     let g:ctrlp_map = '<leader>ff'
     let g:ctrlp_mruf_relative = 1
-    let g:ctrlp_mruf_exclude = '/\.git/.*\|^/tmp/vimpager.*\|^/var/folders.*'
+    let g:ctrlp_mruf_exclude = '/\.git/.*\|^/var/folders.*'
     let g:ctrlp_match_window_reversed = 0
     " Adding .vim/bundle hacks CtrlP into not using the -o option in $HOME,
     " where it's terribly slow.
