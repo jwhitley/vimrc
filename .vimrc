@@ -606,10 +606,24 @@
   "}}}
 
   " goyo.vim {{{
+    function! s:goyo_enter()
+      set signcolumn=no
+      set scrolloff=12
+      set noshowcmd
+      Limelight
+    endfunction
+
+    function! s:goyo_leave()
+      set signcolumn=auto
+      set scrolloff=3
+      set showcmd
+      Limelight!
+    endfunction
+
     augroup Goyo
       autocmd!
-      autocmd User GoyoEnter Limelight | set signcolumn=no
-      autocmd User GoyoLeave Limelight! | set signcolumn=auto
+      autocmd User GoyoEnter nested call <SID>goyo_enter()
+      autocmd User GoyoLeave nested call <SID>goyo_leave()
     augroup END
   " }}}
 
