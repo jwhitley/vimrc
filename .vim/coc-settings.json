@@ -2,7 +2,14 @@
   "codeLens.enable": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": true,
+  "cSpell.languageSettings": [
+    {
+      "languageId": "json",
+      "includeRegExpList": [ "CStyleComment" ]
+    }
+  ],
   "cSpell.userWords": [
+    "kumihimo",
     "subfolders"
   ],
   "eslint.packageManager": "yarn",
