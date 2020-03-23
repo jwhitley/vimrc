@@ -14,8 +14,6 @@
   " The default updatetime of 4000ms is not good for async update
   set updatetime=100
 
-  set cmdheight=2
-
   " Establish the .vim directory relative to this script, so that isolated
   " testing of this file in a clone repo works.
   let g:vimrc_home=expand("<sfile>:h")
