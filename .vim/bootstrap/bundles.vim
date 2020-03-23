@@ -31,7 +31,7 @@ Plug             'mileszs/ack.vim'
 Plug               'rking/ag.vim'
 Plug                 'sjl/badwolf'
 Plug            'neoclide/coc.nvim', {'branch': 'release'}
-Plug         'vim-scripts/bufkill.vim'
+Plug              'qpkorr/vim-bufkill'
 Plug         'vim-scripts/camelcasemotion'
 Plug         'vim-scripts/CursorLineCurrentWindow'
 Plug              'hail2u/vim-css3-syntax'
