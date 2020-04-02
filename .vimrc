@@ -735,6 +735,10 @@
     autocmd FileType javascript,ruby autocmd FilterWritePre * :call TrimTrailingWhitespace()
     autocmd FileType javascript,ruby autocmd BufWritePre    * :call TrimTrailingWhitespace()
 
+    " Set vim's c-style indenting options, including for javascript. See :h
+    " cinoptions-values for details.
+    set cinoptions=l1,:0
+
     " Jump to last cursor position unless it's invalid or in an event handler
     autocmd BufReadPost *
       \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") |
