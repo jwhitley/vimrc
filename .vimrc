@@ -255,6 +255,10 @@
   nnoremap <F1> <ESC>
   vnoremap <F1> <ESC>
 
+  " Buffer next/prev mappings
+  nnoremap ]b :bnext<cr>
+  nnoremap [b :bprevious<cr>
+
   " Window mappings, parallel with my tmux mappings
   nnoremap <c-w>- <c-w>s
   nnoremap <c-w>\| <c-w>v
