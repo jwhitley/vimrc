@@ -352,12 +352,16 @@
         return
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-  endfunc
+  endfunction
 
   " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
-  map <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-  \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+  map <F11> :call <SID>SynGroups()<cr>
+  function! <SID>SynGroups()
+    let l:hi = synIDattr(synID(line("."),col("."),1),"name")
+    let l:trans = synIDattr(synID(line("."),col("."),0),"name")
+    let l:lo = synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
+    echo "hi<" . l:hi . "> trans<" . l:trans . "> lo<" . l:lo . ">"
+  endfunction
 
   " fugitive-style invocation for Git Tower
   if has('mac')
