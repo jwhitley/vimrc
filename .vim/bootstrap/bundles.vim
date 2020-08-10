@@ -84,7 +84,6 @@ Plug             'tpope/vim-markdown'
 Plug          'nelstrom/vim-markdown-folding'
 Plug          'jwhitley/vim-mdx-js'
 Plug             'xolox/vim-misc'
-Plug           'terryma/vim-multiple-cursors'
 Plug             'jistr/vim-nerdtree-tabs'
 Plug             'tpope/vim-obsession'
 Plug       'dhruvasagar/vim-prosession'   " requires vim-obsession
