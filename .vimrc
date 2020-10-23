@@ -194,6 +194,13 @@
   " Syntax-specific settings
   let hs_highlight_types = 1
   let hs_highlight_more_types = 1
+
+  " The default formatting for typescriptReserved is 'Error' which is
+  " utterly offensive. A recently-introduce neovim bug (circa 2786d96)
+  " is causing the typescript-vim plugin to not set/override this stupidity
+  " correctly. Hack it for now.
+  " Filed as https://github.com/leafgarland/typescript-vim/issues/184
+  hi link typescriptReserved             Keyword
 " }}}
 
 " Folding {{{
