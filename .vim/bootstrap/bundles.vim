@@ -90,7 +90,6 @@ Plug       'dhruvasagar/vim-prosession'   " requires vim-obsession
 Plug          'jwhitley/vim-preserve'
 Plug            'rodjek/vim-puppet'
 Plug             'tpope/vim-rails'
-Plug   'reasonml-editor/vim-reason-plus'
 Plug             'tpope/vim-repeat'
 Plug          'jwhitley/vim-repotools'
 Plug           'jremmen/vim-ripgrep'
