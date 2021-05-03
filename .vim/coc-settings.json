@@ -9,10 +9,14 @@
     }
   ],
   "cSpell.userWords": [
+    "CIDR",
     "Kubernetes",
+    "VLAN",
     "WCAG",
+    "ansible",
     "debounced",
     "kumihimo",
+    "kumo",
     "luminanace",
     "subfolders"
   ],
