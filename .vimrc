@@ -543,6 +543,10 @@
     command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
   " }}}
 
+  " vimagit {{{
+    nmap <leader>m :Magit<cr>
+  " }}}
+
   " vim-colortemplate {{{
     let g:colortemplate_no_mappings = 1
   " }}}
