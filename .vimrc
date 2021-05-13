@@ -144,7 +144,7 @@
 
   " Terminal settings {{{
     " Enable mouse/trackpad scrolling
-    set mouse=nicr
+    set mouse=a
     " Fix escape delay leaving insert mode
     " via https://powerline.readthedocs.org/en/latest/tipstricks.html
     set ttimeoutlen=10
