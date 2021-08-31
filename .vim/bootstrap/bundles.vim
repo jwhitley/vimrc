@@ -93,7 +93,6 @@ Plug            'rodjek/vim-puppet'
 Plug             'tpope/vim-rails'
 Plug             'tpope/vim-repeat'
 Plug          'jwhitley/vim-repotools'
-Plug           'jremmen/vim-ripgrep'
 Plug          'vim-ruby/vim-ruby', { 'for': ['rb'] }
 Plug            'sunaku/vim-ruby-minitest', { 'for': ['rb'] }
 Plug          'Raimondi/vim_search_objects'
