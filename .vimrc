@@ -617,6 +617,8 @@
     augroup Fugitive
       autocmd!
       autocmd FileType fugitive nnoremap <buffer> q <C-W>q
+      autocmd FileType fugitive nmap <buffer> <C-N> )
+      autocmd FileType fugitive nmap <buffer> <C-P> (
     augroup END
   "}}}
 
