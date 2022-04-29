@@ -44,6 +44,10 @@
 
 " Providers {{{
   let g:loaded_python_provider = 1
+  let default_python="/usr/local/bin/python3"
+  if executable(default_python)
+    let g:python3_host_prog=default_python
+  endif
 " }}}
 
 " Bundles {{{
