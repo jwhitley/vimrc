@@ -21,5 +21,6 @@
     "subfolders"
   ],
   "eslint.packageManager": "yarn",
-  "eslint.quiet": true
+  "eslint.quiet": true,
+  "snippets.ultisnips.pythonPrompt": false
 }

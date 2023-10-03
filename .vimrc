@@ -175,7 +175,7 @@
 
   " GUI settings {{{
     set guioptions-=T
-    set guifont=Source\ Code\ Pro\ Light\ for\ Powerline:h16,Anonymous\ Pro\ for\ Powerline:h16,Menlo:h18:Consolas\ Regular:h16,Courier\ New\ Regular:h18
+    set guifont=Dank\ Mono:h16,Source\ Code\ Pro\ Light\ for\ Powerline:h16,Anonymous\ Pro\ for\ Powerline:h16,Menlo:h18:Consolas\ Regular:h16,Courier\ New\ Regular:h18
 
     if has('gui_macvim')
       set lines=50
