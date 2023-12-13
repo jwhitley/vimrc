@@ -133,17 +133,23 @@
     set inccommand=nosplit
   endif
 
-  augroup InitColorScheme
-    autocmd!
-    au VimEnter * colorscheme synthwave84 | AirlineTheme base16_eighties
-  augroup END
+  if (exists('g:vscode') == v:true)
+    set nonumber
+    set signcolumn=no
+  else
+    augroup InitColorScheme
+      autocmd!
+      au VimEnter * colorscheme synthwave84 | AirlineTheme base16_eighties
+    augroup END
+
+    set number                         " Display line numbers ...
+    set ruler                          " Display line number and column
+  endif
 
   " Always display the status line, even in the last window
   " -- particularly useful with powerline
   set laststatus=2
 
-  set number                         " Display line numbers ...
-  set ruler                          " Display line number and column
 
   " set wildignore+=.git,.bzr,tmp,public/assets,node_modules
 
@@ -428,6 +434,7 @@
   " }}}
 
   " CoC {{{
+  if exists('g:did_coc_loaded')
     " Prevent |ins-completion-menu| messages
     set shortmess+=c
 
@@ -551,6 +558,7 @@
 
     " use `:OR` for organize import of current buffer
     command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
+  endif
   " }}}
 
   " vimagit {{{
@@ -605,12 +613,14 @@
   " }}}
 
   " emmet-vim {{{
+  if (exists('g:loaded_emmet_vim') && g:loaded_emmet_vim)
     let g:user_emmet_install_global = 0
     let g:user_emmet_leader_key='<C-e>'
     autocmd FileType javascript,php,html,css EmmetInstall
     let g:user_emmet_settings = {
       \ 'javascript.jsx': { 'extends': 'jsx' }
     \ }
+  endif
   " }}}
 
   " vim-fugitive {{{
@@ -631,28 +641,6 @@
       autocmd FileType fugitive nmap <buffer> <C-P> (
     augroup END
   "}}}
-
-  " goyo.vim {{{
-    function! s:goyo_enter()
-      set signcolumn=no
-      set scrolloff=12
-      set noshowcmd
-      Limelight
-    endfunction
-
-    function! s:goyo_leave()
-      set signcolumn=auto
-      set scrolloff=3
-      set showcmd
-      Limelight!
-    endfunction
-
-    augroup Goyo
-      autocmd!
-      autocmd User GoyoEnter nested call <SID>goyo_enter()
-      autocmd User GoyoLeave nested call <SID>goyo_leave()
-    augroup END
-  " }}}
 
   " gundo.vim {{{
     nnoremap <leader>u :GundoToggle<cr>

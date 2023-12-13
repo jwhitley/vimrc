@@ -24,21 +24,30 @@ endif
 
 " FIXME: endwise disabled as it conflicts with coc completion bindings
 " Plug               'tpope/vim-endwise'
+Plug          'Raimondi/delimitMate'
+Plug       'vim-scripts/camelcasemotion'
+Plug           'pskpatil/vim-securemodelines'
+Plug         'godlygeek/tabular'
+Plug             'tpope/vim-surround'
+Plug         'jasonlong/vim-textobj-css'
+Plug              'kana/vim-textobj-entire'
+Plug              'kana/vim-textobj-line'
+Plug          'nelstrom/vim-textobj-rubyblock', { 'for': ['rb'] }
+Plug              'kana/vim-textobj-user'
+Plug          'justinmk/vim-sneak'
+Plug             'tpope/vim-repeat'
+Plug             'rhysd/clever-f.vim'
 
-Plug          'junegunn/goyo.vim'
-Plug          'junegunn/limelight.vim'
+""" Plugins disable under VSCode
+if (exists('g:vscode') == v:false)
 Plug           'mileszs/ack.vim'
 Plug             'rking/ag.vim'
-Plug               'sjl/badwolf'
 Plug          'neoclide/coc.nvim', {'branch': 'release'}
 Plug            'qpkorr/vim-bufkill'
-Plug       'vim-scripts/camelcasemotion'
 Plug       'vim-scripts/CursorLineCurrentWindow'
 Plug            'hail2u/vim-css3-syntax'
 Plug      'editorconfig/editorconfig-vim'
-Plug             'rhysd/clever-f.vim'
 Plug          'ctrlpvim/ctrlp.vim'
-Plug          'Raimondi/delimitMate'
 Plug          'jwhitley/dtd.vim', { 'for': ['dtd'] }
 Plug             'mattn/emmet-vim'
 Plug          'junegunn/fzf'
@@ -52,10 +61,8 @@ Plug          'jwhitley/mxml.vim'
 Plug        'scrooloose/nerdtree'
 Plug            'henrik/rename.vim'
 Plug         'rust-lang/rust.vim', { 'for': ['rs'] }
-Plug           'ciaranm/securemodelines'
 Plug             'keith/swift.vim', { 'for': ['swift'] }
 Plug          'jwhitley/vim-synthwave84'
-Plug         'godlygeek/tabular'
 Plug          'jwhitley/tender.vim'
 Plug            'thinca/vim-themis'
 Plug          'jwhitley/Vagrantfile.vim'
@@ -91,25 +98,18 @@ Plug       'dhruvasagar/vim-prosession'   " requires vim-obsession
 Plug          'jwhitley/vim-preserve'
 Plug            'rodjek/vim-puppet'
 Plug             'tpope/vim-rails'
-Plug             'tpope/vim-repeat'
 Plug          'jwhitley/vim-repotools'
 Plug          'vim-ruby/vim-ruby', { 'for': ['rb'] }
 Plug            'sunaku/vim-ruby-minitest', { 'for': ['rb'] }
 Plug          'Raimondi/vim_search_objects'
 Plug            'inside/vim-search-pulse'
-Plug          'justinmk/vim-sneak'
 Plug             'mhinz/vim-signify'
 Plug          'jpalardy/vim-slime'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug             'tpope/vim-surround'
-Plug         'jasonlong/vim-textobj-css'
-Plug              'kana/vim-textobj-entire'
-Plug              'kana/vim-textobj-line'
-Plug          'nelstrom/vim-textobj-rubyblock', { 'for': ['rb'] }
-Plug              'kana/vim-textobj-user'
 Plug          'jwhitley/vim-visual-star-search'
 Plug        'liuchengxu/vista.vim'
 Plug            'troydm/zoomwintab.vim'
+endif
 
 if exists("s:bootstrap") && s:bootstrap
   unlet s:bootstrap
