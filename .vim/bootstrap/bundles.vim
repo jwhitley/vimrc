@@ -37,6 +37,9 @@ Plug              'kana/vim-textobj-user'
 Plug          'justinmk/vim-sneak'
 Plug             'tpope/vim-repeat'
 Plug             'rhysd/clever-f.vim'
+" Required to use nvim HEAD since treesitter parsers are no longer bundled
+" The bundled parsers should be installed via TSInstall: [c, lua, vim, vimdoc, query]
+Plug   'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 """ Plugins disable under VSCode
 if (exists('g:vscode') == v:false)
