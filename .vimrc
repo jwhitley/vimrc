@@ -8,10 +8,6 @@
 " Environment {{{
   set nocompatible                     " must be first!
 
-  " neovim filetype setup
-  let g:do_filetype_lua = 1
-  let g:did_load_filetypes = 0
-
   " encoding setup
   set encoding=utf-8
   scriptencoding utf-8
